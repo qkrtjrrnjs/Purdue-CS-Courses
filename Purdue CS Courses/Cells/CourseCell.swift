@@ -14,32 +14,45 @@ class CourseCell: UITableViewCell {
     
     let courseLabel = UILabel().then{
         $0.textColor        = .black
-        $0.textAlignment    = .left
-        $0.font             = UIFont.systemFont(ofSize: 16)
+        $0.textAlignment    = .center
+        $0.font             = UIFont(name: "Tajawal-Regular", size: 16)
         $0.numberOfLines    = 0
     }
     
     let descriptionLabel = UILabel().then{
         $0.textColor        = .black
         $0.textAlignment    = .left
-        $0.font             = UIFont.systemFont(ofSize: 16)
+        $0.font             = UIFont(name: "Tajawal-Regular", size: 16)
         $0.numberOfLines    = 0
+    }
+    
+    let backdropView = UIView().then{
+        $0.backgroundColor      = UIColor(hex: "E4ECF1")
+        $0.layer.cornerRadius   = 5
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        addSubview(backdropView)
         addSubview(courseLabel)
         addSubview(descriptionLabel)
         
         courseLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(10)
-            make.bottom.equalTo(self.snp.bottom).offset(-10)
-            make.left.equalTo(self.snp.left)
+            make.top.equalTo(self.snp.top).offset(25)
+            make.bottom.equalTo(self.snp.bottom).offset(-25)
+            make.left.equalTo(self.snp.left).offset(5)
             make.right.equalTo(self.snp.right)
         }
         
         descriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top).offset(20)
+            make.bottom.equalTo(self.snp.bottom).offset(-20)
+            make.left.equalTo(self.snp.left).offset(15)
+            make.right.equalTo(self.snp.right).offset(-15)
+        }
+        
+        backdropView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(5)
             make.bottom.equalTo(self.snp.bottom).offset(-5)
             make.left.equalTo(self.snp.left)
@@ -53,3 +66,5 @@ class CourseCell: UITableViewCell {
 
 
 }
+
+

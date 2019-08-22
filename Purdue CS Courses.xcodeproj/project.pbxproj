@@ -14,6 +14,14 @@
 		8341CA0E230C37B7000E4F96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */; };
 		8341CA16230C38A5000E4F96 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA15230C38A5000E4F96 /* Course.swift */; };
 		8341CA18230DDB3D000E4F96 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA17230DDB3D000E4F96 /* CourseCell.swift */; };
+		8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */; };
+		8341CA25230EE0C8000E4F96 /* Tajawal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA1E230EE0C8000E4F96 /* Tajawal-ExtraBold.ttf */; };
+		8341CA26230EE0C8000E4F96 /* Tajawal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA1F230EE0C8000E4F96 /* Tajawal-Light.ttf */; };
+		8341CA27230EE0C8000E4F96 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA20230EE0C8000E4F96 /* Tajawal-Bold.ttf */; };
+		8341CA28230EE0C8000E4F96 /* Tajawal-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA21230EE0C8000E4F96 /* Tajawal-ExtraLight.ttf */; };
+		8341CA29230EE0C8000E4F96 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */; };
+		8341CA2A230EE0C8000E4F96 /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */; };
+		8341CA2B230EE0C8000E4F96 /* Tajawal-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +35,14 @@
 		8341CA0F230C37B7000E4F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8341CA15230C38A5000E4F96 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8341CA17230DDB3D000E4F96 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToUIColor.swift; sourceTree = "<group>"; };
+		8341CA1E230EE0C8000E4F96 /* Tajawal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-ExtraBold.ttf"; sourceTree = "<group>"; };
+		8341CA1F230EE0C8000E4F96 /* Tajawal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Light.ttf"; sourceTree = "<group>"; };
+		8341CA20230EE0C8000E4F96 /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Bold.ttf"; sourceTree = "<group>"; };
+		8341CA21230EE0C8000E4F96 /* Tajawal-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-ExtraLight.ttf"; sourceTree = "<group>"; };
+		8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
+		8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
+		8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,6 +96,7 @@
 		8341CA02230C37B3000E4F96 /* Purdue CS Courses */ = {
 			isa = PBXGroup;
 			children = (
+				8341CA2C230EE0CC000E4F96 /* Fonts */,
 				8341CA1A230DDF13000E4F96 /* ViewControllers */,
 				8341CA19230DDF09000E4F96 /* Cells */,
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
@@ -103,8 +120,31 @@
 			isa = PBXGroup;
 			children = (
 				8341CA05230C37B3000E4F96 /* CourseViewController.swift */,
+				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8341CA1D230EE0C8000E4F96 /* Tajawal */ = {
+			isa = PBXGroup;
+			children = (
+				8341CA1E230EE0C8000E4F96 /* Tajawal-ExtraBold.ttf */,
+				8341CA1F230EE0C8000E4F96 /* Tajawal-Light.ttf */,
+				8341CA20230EE0C8000E4F96 /* Tajawal-Bold.ttf */,
+				8341CA21230EE0C8000E4F96 /* Tajawal-ExtraLight.ttf */,
+				8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */,
+				8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */,
+				8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */,
+			);
+			path = Tajawal;
+			sourceTree = "<group>";
+		};
+		8341CA2C230EE0CC000E4F96 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8341CA1D230EE0C8000E4F96 /* Tajawal */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +207,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8341CA2A230EE0C8000E4F96 /* Tajawal-Medium.ttf in Resources */,
 				8341CA0E230C37B7000E4F96 /* LaunchScreen.storyboard in Resources */,
+				8341CA25230EE0C8000E4F96 /* Tajawal-ExtraBold.ttf in Resources */,
+				8341CA26230EE0C8000E4F96 /* Tajawal-Light.ttf in Resources */,
+				8341CA28230EE0C8000E4F96 /* Tajawal-ExtraLight.ttf in Resources */,
+				8341CA27230EE0C8000E4F96 /* Tajawal-Bold.ttf in Resources */,
+				8341CA2B230EE0C8000E4F96 /* Tajawal-Black.ttf in Resources */,
+				8341CA29230EE0C8000E4F96 /* Tajawal-Regular.ttf in Resources */,
 				8341CA0B230C37B7000E4F96 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +272,7 @@
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
 				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
+				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

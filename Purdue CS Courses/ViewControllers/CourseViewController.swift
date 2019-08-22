@@ -34,7 +34,7 @@ class CourseViewController: UIViewController {
         self.courseTableView.dataSource                     = self
         self.courseTableView.delegate                       = self
         self.courseTableView.showsVerticalScrollIndicator   = false
-        self.courseTableView.separatorColor                 = .none
+        self.courseTableView.separatorColor                 = .clear
         
         self.view.addSubview(courseTableView)
         
@@ -65,11 +65,12 @@ extension CourseViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
-            cell.courseLabel.text = courses[indexPath.section].name
+            cell.courseLabel.text = "CS \(courses[indexPath.section].number)"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CourseCell
             cell.descriptionLabel.text = courses[indexPath.section].description
+            cell.backdropView.isHidden = true
             return cell
         }
     }
@@ -86,3 +87,5 @@ extension CourseViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
 }
+
+
