@@ -10,13 +10,11 @@ import Foundation
 
 struct Course{
     var number: Int
-    var name: String
     var description: String
     var opened: Bool
     
-    init(CS number: Int, _ name: String, description: String, opened: Bool){
+    init(CS number: Int, description: String, opened: Bool){
         self.number         = number
-        self.name           = name
         self.description    = description
         self.opened         = opened
     }
