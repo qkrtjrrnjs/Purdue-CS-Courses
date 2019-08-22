@@ -12,23 +12,23 @@ import SnapKit
 
 class CourseCell: UITableViewCell {
     
-    let courseLabel = UILabel().then{
-        $0.textColor        = .black
-        $0.textAlignment    = .center
-        $0.font             = UIFont(name: "Tajawal-Regular", size: 20)
-        $0.numberOfLines    = 0
+    let courseLabel = UILabel().then{ (label) in
+        label.textColor        = .black
+        label.textAlignment    = .center
+        label.font             = UIFont(name: "Tajawal-Regular", size: 20)
+        label.numberOfLines    = 0
     }
     
-    let descriptionLabel = UILabel().then{
-        $0.textColor        = .black
-        $0.textAlignment    = .left
-        $0.font             = UIFont(name: "Tajawal-Medium", size: 18)
-        $0.numberOfLines    = 0
+    let descriptionLabel = UILabel().then{ (label) in
+        label.textColor        = .black
+        label.textAlignment    = .left
+        label.font             = UIFont(name: "Tajawal-Medium", size: 18)
+        label.numberOfLines    = 0
     }
     
-    let backdropView = UIView().then{
-        $0.backgroundColor      = UIColor(hex: "E4ECF1")
-        $0.layer.cornerRadius   = 3
+    let backdropView = UIView().then{ (view) in
+        view.backgroundColor      = UIColor(hex: "E4ECF1")
+        view.layer.cornerRadius   = 3
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,7 +41,7 @@ class CourseCell: UITableViewCell {
         courseLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(25)
             make.bottom.equalTo(self.snp.bottom).offset(-25)
-            make.left.equalTo(self.snp.left).offset(5)
+            make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }
         
@@ -53,8 +53,8 @@ class CourseCell: UITableViewCell {
         }
         
         backdropView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(5)
-            make.bottom.equalTo(self.snp.bottom).offset(-5)
+            make.top.equalTo(self.snp.top).offset(6)
+            make.bottom.equalTo(self.snp.bottom).offset(-6)
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }

@@ -23,11 +23,27 @@ class CourseViewController: UIViewController {
     
     let courseTableView = UITableView()
     let cellId          = "courseCellId"
+    let titleLabel      = UILabel().then{ (label) in
+        label.text          = "COURSE"
+        label.textColor     = .black
+        label.font          = UIFont(name: "Tajawal-Regular", size: 20)
+        label.textAlignment = .center
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpLabel()
         setUpTableView()
+    }
+    
+    func setUpLabel(){
+        self.view.addSubview(titleLabel)
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.view.snp.centerX)
+            make.top.equalTo(self.view.snp.topMargin).offset(50)
+        }
     }
     
     func setUpTableView(){
@@ -39,10 +55,10 @@ class CourseViewController: UIViewController {
         self.view.addSubview(courseTableView)
         
         courseTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(50)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(40)
             make.bottom.equalTo(self.view.snp.bottomMargin)
-            make.left.equalTo(self.view.snp.left).offset(30)
-            make.right.equalTo(self.view.snp.right).offset(-30)
+            make.left.equalTo(self.view.snp.left).offset(40)
+            make.right.equalTo(self.view.snp.right).offset(-40)
         }
         
         courseTableView.register(CourseCell.self, forCellReuseIdentifier: cellId)
