@@ -3,25 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15EDBC9024C68425ED4A4702 /* Pods_Purdue_CS_Courses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */; };
 		8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA03230C37B3000E4F96 /* AppDelegate.swift */; };
-		8341CA06230C37B3000E4F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA05230C37B3000E4F96 /* ViewController.swift */; };
-		8341CA09230C37B3000E4F96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA07230C37B3000E4F96 /* Main.storyboard */; };
+		8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA05230C37B3000E4F96 /* CourseViewController.swift */; };
 		8341CA0B230C37B7000E4F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA0A230C37B7000E4F96 /* Assets.xcassets */; };
 		8341CA0E230C37B7000E4F96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */; };
+		8341CA16230C38A5000E4F96 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA15230C38A5000E4F96 /* Course.swift */; };
+		8341CA18230DDB3D000E4F96 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA17230DDB3D000E4F96 /* CourseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18C80AAAFCD51A24686E38E6 /* Pods-Purdue CS Courses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Purdue CS Courses.debug.xcconfig"; path = "Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses.debug.xcconfig"; sourceTree = "<group>"; };
+		1F51AA10A3D19B78C629F3A0 /* Pods-Purdue CS Courses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Purdue CS Courses.release.xcconfig"; path = "Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses.release.xcconfig"; sourceTree = "<group>"; };
 		8341CA00230C37B3000E4F96 /* Purdue CS Courses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Purdue CS Courses.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8341CA03230C37B3000E4F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8341CA05230C37B3000E4F96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8341CA08230C37B3000E4F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8341CA05230C37B3000E4F96 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		8341CA0A230C37B7000E4F96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8341CA0D230C37B7000E4F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8341CA0F230C37B7000E4F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8341CA15230C38A5000E4F96 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		8341CA17230DDB3D000E4F96 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EDBC9024C68425ED4A4702 /* Pods_Purdue_CS_Courses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		380A2A8DFF33A9A78EB8FAD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18C80AAAFCD51A24686E38E6 /* Pods-Purdue CS Courses.debug.xcconfig */,
+				1F51AA10A3D19B78C629F3A0 /* Pods-Purdue CS Courses.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		62C4B3F6940AC01F379B87B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8341C9F7230C37B3000E4F96 = {
 			isa = PBXGroup;
 			children = (
 				8341CA02230C37B3000E4F96 /* Purdue CS Courses */,
 				8341CA01230C37B3000E4F96 /* Products */,
+				380A2A8DFF33A9A78EB8FAD9 /* Pods */,
+				62C4B3F6940AC01F379B87B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +80,31 @@
 		8341CA02230C37B3000E4F96 /* Purdue CS Courses */ = {
 			isa = PBXGroup;
 			children = (
+				8341CA1A230DDF13000E4F96 /* ViewControllers */,
+				8341CA19230DDF09000E4F96 /* Cells */,
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
-				8341CA05230C37B3000E4F96 /* ViewController.swift */,
-				8341CA07230C37B3000E4F96 /* Main.storyboard */,
+				8341CA15230C38A5000E4F96 /* Course.swift */,
 				8341CA0A230C37B7000E4F96 /* Assets.xcassets */,
 				8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */,
 				8341CA0F230C37B7000E4F96 /* Info.plist */,
 			);
 			path = "Purdue CS Courses";
+			sourceTree = "<group>";
+		};
+		8341CA19230DDF09000E4F96 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8341CA17230DDB3D000E4F96 /* CourseCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8341CA1A230DDF13000E4F96 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8341CA05230C37B3000E4F96 /* CourseViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8341CA12230C37B7000E4F96 /* Build configuration list for PBXNativeTarget "Purdue CS Courses" */;
 			buildPhases = (
+				2A0A67E0C1735E77F88CCF51 /* [CP] Check Pods Manifest.lock */,
 				8341C9FC230C37B3000E4F96 /* Sources */,
 				8341C9FD230C37B3000E4F96 /* Frameworks */,
 				8341C9FE230C37B3000E4F96 /* Resources */,
+				2E7B2D7D5016DC7518502307 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,18 +169,61 @@
 			files = (
 				8341CA0E230C37B7000E4F96 /* LaunchScreen.storyboard in Resources */,
 				8341CA0B230C37B7000E4F96 /* Assets.xcassets in Resources */,
-				8341CA09230C37B3000E4F96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A0A67E0C1735E77F88CCF51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Purdue CS Courses-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E7B2D7D5016DC7518502307 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8341C9FC230C37B3000E4F96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8341CA06230C37B3000E4F96 /* ViewController.swift in Sources */,
+				8341CA18230DDB3D000E4F96 /* CourseCell.swift in Sources */,
+				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
+				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +231,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8341CA07230C37B3000E4F96 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8341CA08230C37B3000E4F96 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,6 +360,7 @@
 		};
 		8341CA13230C37B7000E4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18C80AAAFCD51A24686E38E6 /* Pods-Purdue CS Courses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +379,7 @@
 		};
 		8341CA14230C37B7000E4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F51AA10A3D19B78C629F3A0 /* Pods-Purdue CS Courses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
