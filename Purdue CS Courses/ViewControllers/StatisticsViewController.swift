@@ -14,7 +14,9 @@ class StatisticsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        guard let number = number else { return }
+        print("\(number)")
     }
 
 

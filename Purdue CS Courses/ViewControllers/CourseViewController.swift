@@ -87,6 +87,15 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: courseCellId, for: indexPath) as! CourseCell
             cell.courseLabel.text = "CS \(courses[indexPath.section].number)"
             cell.selectionStyle = .none
+            
+            cell.showStatistics = { [unowned self] in
+                let statisticsVC = StatisticsViewController()
+                statisticsVC.modalTransitionStyle = .crossDissolve
+                statisticsVC.number = self.courses[indexPath.section].number
+                statisticsVC.view.backgroundColor = .white
+                self.present(statisticsVC, animated: true, completion: nil)
+            }
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as! DescriptionCell

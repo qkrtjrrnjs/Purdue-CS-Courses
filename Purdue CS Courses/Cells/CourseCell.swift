@@ -19,8 +19,8 @@ class CourseCell: UITableViewCell {
         label.numberOfLines    = 0
     }
     
-    let descriptionButton = UIButton().then{ (button) in
-        button.backgroundColor = UIColor(hex: "c6c6c6")
+    let showStatisticsButton = UIButton().then{ (button) in
+        button.setImage(UIImage(named: "arrow"), for: .normal)
     }
     
     let backdropView = UIView().then{ (view) in
@@ -29,13 +29,14 @@ class CourseCell: UITableViewCell {
         view.layer.cornerRadius   = 3
     }
     
-    var descriptionButtonAction : (() -> ())?
+    var showStatistics : (() -> ())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubview(backdropView)
-        addSubview(courseLabel)
+        backdropView.addSubview(courseLabel)
+        backdropView.addSubview(showStatisticsButton)
 
         backdropView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(6)
@@ -51,7 +52,13 @@ class CourseCell: UITableViewCell {
             make.right.equalTo(self.snp.right)
         }
         
-        self.descriptionButton.addTarget(self, action: #selector(descriptionButtonTapped), for: .touchUpInside)
+        showStatisticsButton.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 30, height: 30))
+            make.centerY.equalTo(self.snp.centerY)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        
+        self.showStatisticsButton.addTarget(self, action: #selector(descriptionButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +66,7 @@ class CourseCell: UITableViewCell {
     }
 
     @objc func descriptionButtonTapped(){
-        descriptionButtonAction?()
+        showStatistics?()
     }
 }
 
