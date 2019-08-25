@@ -19,24 +19,38 @@ class CourseCell: UITableViewCell {
         label.numberOfLines    = 0
     }
     
-    let descriptionLabel = UILabel().then{ (label) in
-        label.textColor        = .black
-        label.textAlignment    = .left
-        label.font             = UIFont(name: "Tajawal-Medium", size: 18)
-        label.numberOfLines    = 0
+    let descriptionButton = UIButton().then{ (button) in
+        button.backgroundColor = UIColor(hex: "c6c6c6")
     }
     
     let backdropView = UIView().then{ (view) in
         view.backgroundColor      = UIColor(hex: "E4ECF1")
+        view.clipsToBounds        = true
         view.layer.cornerRadius   = 3
     }
+    
+//    var course: Course?{
+//        didSet{
+//            guard let course = course else { return }
+//            //courseLabel.text = "CS \(course.number)"
+//            descriptionLabel.text = course.description
+//        }
+//    }
+    
+    var descriptionButtonAction : (() -> ())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubview(backdropView)
         addSubview(courseLabel)
-        addSubview(descriptionLabel)
+
+        backdropView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top).offset(6)
+            make.bottom.equalTo(self.snp.bottom).offset(-6)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+        }
         
         courseLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(25)
@@ -45,26 +59,16 @@ class CourseCell: UITableViewCell {
             make.right.equalTo(self.snp.right)
         }
         
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(20)
-            make.bottom.equalTo(self.snp.bottom).offset(-20)
-            make.left.equalTo(self.snp.left).offset(15)
-            make.right.equalTo(self.snp.right).offset(-15)
-        }
-        
-        backdropView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(6)
-            make.bottom.equalTo(self.snp.bottom).offset(-6)
-            make.left.equalTo(self.snp.left)
-            make.right.equalTo(self.snp.right)
-        }
+        self.descriptionButton.addTarget(self, action: #selector(descriptionButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 
-
+    @objc func descriptionButtonTapped(){
+        descriptionButtonAction?()
+    }
 }
 
 

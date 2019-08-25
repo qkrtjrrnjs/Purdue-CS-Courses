@@ -22,6 +22,8 @@
 		8341CA29230EE0C8000E4F96 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */; };
 		8341CA2A230EE0C8000E4F96 /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */; };
 		8341CA2B230EE0C8000E4F96 /* Tajawal-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */; };
+		8341CA2E230F0D0F000E4F96 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */; };
+		83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CBDB242313209A007FE257 /* DescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
 		8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
 		8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
+		8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsViewController.swift; path = "Purdue CS Courses/ViewControllers/StatisticsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		83CBDB242313209A007FE257 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,7 @@
 				8341CA19230DDF09000E4F96 /* Cells */,
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
 				8341CA15230C38A5000E4F96 /* Course.swift */,
+				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 				8341CA0A230C37B7000E4F96 /* Assets.xcassets */,
 				8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */,
 				8341CA0F230C37B7000E4F96 /* Info.plist */,
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8341CA17230DDB3D000E4F96 /* CourseCell.swift */,
+				83CBDB242313209A007FE257 /* DescriptionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -119,8 +125,8 @@
 		8341CA1A230DDF13000E4F96 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */,
 				8341CA05230C37B3000E4F96 /* CourseViewController.swift */,
-				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -269,8 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8341CA18230DDB3D000E4F96 /* CourseCell.swift in Sources */,
+				83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */,
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
 				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
+				8341CA2E230F0D0F000E4F96 /* StatisticsViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
 			);

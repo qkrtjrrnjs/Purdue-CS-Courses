@@ -11,12 +11,12 @@ import Foundation
 struct Course{
     var number: Int
     var description: String
-    var opened: Bool
+    var isExpanded: Bool
     
-    init(CS number: Int, description: String, opened: Bool){
+    init(CS number: Int, description: String, isExpanded: Bool){
         self.number         = number
         self.description    = description
-        self.opened         = opened
+        self.isExpanded     = isExpanded
     }
 }
 
