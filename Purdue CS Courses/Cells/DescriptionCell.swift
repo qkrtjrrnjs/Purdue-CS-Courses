@@ -25,8 +25,8 @@ class DescriptionCell: UITableViewCell {
         addSubview(descriptionLabel)
         
         descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top)
-            make.bottom.equalTo(self.snp.bottom)
+            make.top.equalTo(self.snp.top).offset(5)
+            make.bottom.equalTo(self.snp.bottom).offset(-5)
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }

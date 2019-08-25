@@ -86,23 +86,27 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: courseCellId, for: indexPath) as! CourseCell
             cell.courseLabel.text = "CS \(courses[indexPath.section].number)"
+            cell.selectionStyle = .none
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as! DescriptionCell
             cell.descriptionLabel.text = courses[indexPath.section].description
+            cell.selectionStyle = .none
             return cell
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if courses[indexPath.section].isExpanded == false{
-            courses[indexPath.section].isExpanded = true
-            let sections = IndexSet.init(integer: indexPath.section)
-            courseTableView.reloadSections(sections, with: .automatic)
-        }else{
-            courses[indexPath.section].isExpanded = false
-            let sections = IndexSet.init(integer: indexPath.section)
-            courseTableView.reloadSections(sections, with: .automatic)
+        if indexPath.row == 0{
+            if courses[indexPath.section].isExpanded == false{
+                courses[indexPath.section].isExpanded = true
+                let sections = IndexSet.init(integer: indexPath.section)
+                courseTableView.reloadSections(sections, with: .automatic)
+            }else{
+                courses[indexPath.section].isExpanded = false
+                let sections = IndexSet.init(integer: indexPath.section)
+                courseTableView.reloadSections(sections, with: .automatic)
+            }
         }
     }
 }

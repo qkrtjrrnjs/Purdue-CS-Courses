@@ -29,14 +29,6 @@ class CourseCell: UITableViewCell {
         view.layer.cornerRadius   = 3
     }
     
-//    var course: Course?{
-//        didSet{
-//            guard let course = course else { return }
-//            //courseLabel.text = "CS \(course.number)"
-//            descriptionLabel.text = course.description
-//        }
-//    }
-    
     var descriptionButtonAction : (() -> ())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
