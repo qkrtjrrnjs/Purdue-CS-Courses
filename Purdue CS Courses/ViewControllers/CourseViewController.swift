@@ -9,6 +9,7 @@
 import UIKit
 import Then
 import SnapKit
+import Hero
 
 class CourseViewController: UIViewController{
     
@@ -85,34 +86,29 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: courseCellId, for: indexPath) as! CourseCell
-            cell.courseLabel.text = "CS \(courses[indexPath.section].number)"
-            cell.selectionStyle = .none
+            cell.courseLabel.text   = "CS \(courses[indexPath.section].number)"
+            cell.selectionStyle     = .none
             
             cell.showStatistics = { [unowned self] in
-//                let statisticsVC = StatisticsViewController()
-//                statisticsVC.modalTransitionStyle = .partialCurl
-//                statisticsVC.number = self.courses[indexPath.section].number
-//                statisticsVC.view.backgroundColor = .white
-//                self.present(statisticsVC, animated: true, completion: nil)
-                let transition = CATransition()
-                transition.duration = 0.4
-                transition.type = CATransitionType.reveal
-                transition.subtype = CATransitionSubtype.fromRight
-                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-                self.view.window!.layer.add(transition, forKey: kCATransition)
-                
-                let presentedVC = StatisticsViewController()
-                presentedVC.view.backgroundColor = .white
-                self.present(presentedVC, animated: false, completion: nil)
+                self.transitionToStatisticsVC(indexPath: indexPath)
             }
             
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as! DescriptionCell
-            cell.descriptionLabel.text = courses[indexPath.section].description
-            cell.selectionStyle = .none
+            cell.descriptionLabel.text  = courses[indexPath.section].description
+            cell.selectionStyle         = .none
             return cell
         }
+    }
+    
+    func transitionToStatisticsVC(indexPath: IndexPath){
+        let statisticsVC                        = StatisticsViewController()
+        statisticsVC.hero.isEnabled             = true
+        statisticsVC.hero.modalAnimationType    = .push(direction: .left)
+        statisticsVC.view.backgroundColor       = .white
+        statisticsVC.number                     = self.courses[indexPath.section].number
+        self.present(statisticsVC, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

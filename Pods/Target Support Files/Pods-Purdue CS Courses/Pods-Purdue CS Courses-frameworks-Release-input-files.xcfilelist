@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses-frameworks.sh
-${BUILT_PRODUCTS_DIR}/ElasticTransition/ElasticTransition.framework
-${BUILT_PRODUCTS_DIR}/MotionAnimation/MotionAnimation.framework
+${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/Then/Then.framework

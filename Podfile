@@ -8,6 +8,6 @@ target 'Purdue CS Courses' do
   # Pods for Purdue CS Courses
   pod 'SnapKit'
   pod 'Then'
-  pod "ElasticTransition"
+  pod 'Hero'
 
 end
