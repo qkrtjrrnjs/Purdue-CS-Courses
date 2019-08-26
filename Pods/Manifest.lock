@@ -1,20 +1,28 @@
 PODS:
+  - ElasticTransition (3.1.1):
+    - MotionAnimation (~> 0.1.2)
+  - MotionAnimation (0.1.2)
   - SnapKit (5.0.1)
   - Then (2.5.0)
 
 DEPENDENCIES:
+  - ElasticTransition
   - SnapKit
   - Then
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ElasticTransition
+    - MotionAnimation
     - SnapKit
     - Then
 
 SPEC CHECKSUMS:
+  ElasticTransition: 6c4e4739e32480c864217db912100f3657f6447a
+  MotionAnimation: ff5c8fc2e429d7e10d46ae86819ba9759846c343
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Then: 0157115e883545c77967b452fe74a1d25fb796e1
 
-PODFILE CHECKSUM: 6d895eb38579827c1ec10f20eb5da26c7d4d5d2b
+PODFILE CHECKSUM: 57fe9ac07dfaeeab6046ca43759bb2f57709f89e
 
 COCOAPODS: 1.7.5

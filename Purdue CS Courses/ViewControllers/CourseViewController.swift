@@ -18,7 +18,7 @@ class CourseViewController: UIViewController{
         Course(CS: 17700, description: "Programming With Multimedia Objects\n\nCredit Hours: 4.00. Introduction to computers and programming: number representations, primitive data types and operations, basic control structures, programming applets and applications using graphical user interfaces, programming for detecting events and performing actions, processing multimedia objects such as images and sounds. Throughout the course, examples are drawn from a variety of fields in the natural sciences. Not open to CS majors with a grade of C or better in CS 18000. Not open to non-CS majors with a grade of C or better in any course in computer programming. Typically offered Fall Spring.", isExpanded: false),
         Course(CS: 18000, description: "Problem Solving And Object-Oriented Programming\n\nCredit Hours: 4.00. Problem solving and algorithms, implementation of algorithms in a high level programming language, conditionals, the iterative approach and debugging, collections of data, searching and sorting, solving problems by decomposition, the object-oriented approach, subclasses of existing classes, handling exceptions that occur when the program is running, graphical user interfaces (GUIs), data stored in files, abstract data types, a glimpse at topics from other CS courses. Intended primarily for students majoring in computer sciences. Credit cannot be obtained for both CS 18000 and any of 15600, 15800 and 15900. Not open to students with credit in CS 24000. Typically offered Fall Spring Summer.", isExpanded: false),
         Course(CS: 18200, description: "Foundations Of Computer Science\n\nCredit Hours: 3.00. Logic and proofs; sets, functions, relations, sequences and summations; number representations; counting; fundamentals of the analysis of algorithms; graphs and trees; proof techniques; recursion; Boolean logic; finite state machines; pushdown automata; computability and undecidability. Typically offered Spring Fall Summer.", isExpanded: false),
-        Course(CS: 19100, description: "Freshman Resources Seminar\n\nCredit Hours: 1.00. This course is intended to integrate freshman majors in computer sciences into the department, help them adjust to university life, and assist them in developing academic and intellectual survival skills. Weekly recitation sections enable the students to work in teams. Strongly recommended for freshmen. The credit may be used only toward free electives. Typically offered Fall.", isExpanded: false),
+        Course(CS: 19100, description: "Freshman Resources Seminar\n\nCredit Hours: 1.00. This course is intended to integrate freshman majors in computer sciences into the department, help them adjust to university life, and assist them in developing academic and intellectual survival skills. Weekly recitation sections enable the students to work in teams. Strongly recommended for freshmen. The credit may be used only toward free electives. Typically offered Fall.", isExpanded: false)
     ]
     
     let courseTableView         = UITableView()
@@ -89,11 +89,21 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
             cell.selectionStyle = .none
             
             cell.showStatistics = { [unowned self] in
-                let statisticsVC = StatisticsViewController()
-                statisticsVC.modalTransitionStyle = .crossDissolve
-                statisticsVC.number = self.courses[indexPath.section].number
-                statisticsVC.view.backgroundColor = .white
-                self.present(statisticsVC, animated: true, completion: nil)
+//                let statisticsVC = StatisticsViewController()
+//                statisticsVC.modalTransitionStyle = .partialCurl
+//                statisticsVC.number = self.courses[indexPath.section].number
+//                statisticsVC.view.backgroundColor = .white
+//                self.present(statisticsVC, animated: true, completion: nil)
+                let transition = CATransition()
+                transition.duration = 0.4
+                transition.type = CATransitionType.reveal
+                transition.subtype = CATransitionSubtype.fromRight
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                self.view.window!.layer.add(transition, forKey: kCATransition)
+                
+                let presentedVC = StatisticsViewController()
+                presentedVC.view.backgroundColor = .white
+                self.present(presentedVC, animated: false, completion: nil)
             }
             
             return cell
@@ -118,6 +128,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
     }
+    
 }
 
 
