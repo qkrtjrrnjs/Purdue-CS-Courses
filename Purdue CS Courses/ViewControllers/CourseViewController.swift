@@ -102,12 +102,12 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func transitionToStatisticsVC(indexPath: IndexPath){
-        let statisticsVC                        = StatisticsViewController()
-        statisticsVC.hero.isEnabled             = true
-        statisticsVC.hero.modalAnimationType    = .push(direction: .left)
-        statisticsVC.view.backgroundColor       = .white
-        statisticsVC.course                     = self.courses[indexPath.section]
-        self.present(statisticsVC, animated: true, completion: nil)
+        let detailVC                        = DetailViewController()
+        detailVC.hero.isEnabled             = true
+        detailVC.hero.modalAnimationType    = .push(direction: .left)
+        detailVC.view.backgroundColor       = .white
+        detailVC.course                     = self.courses[indexPath.section]
+        self.present(detailVC, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

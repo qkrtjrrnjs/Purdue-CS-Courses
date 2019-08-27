@@ -22,7 +22,7 @@
 		8341CA29230EE0C8000E4F96 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */; };
 		8341CA2A230EE0C8000E4F96 /* Tajawal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */; };
 		8341CA2B230EE0C8000E4F96 /* Tajawal-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */; };
-		8341CA2E230F0D0F000E4F96 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */; };
+		8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */; };
 		83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CBDB242313209A007FE257 /* DescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 		8341CA22230EE0C8000E4F96 /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
 		8341CA23230EE0C8000E4F96 /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
 		8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
-		8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsViewController.swift; path = "Purdue CS Courses/ViewControllers/StatisticsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "Purdue CS Courses/ViewControllers/DetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		83CBDB242313209A007FE257 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8341CA05230C37B3000E4F96 /* CourseViewController.swift */,
-				8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */,
+				8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */,
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
 				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
-				8341CA2E230F0D0F000E4F96 /* StatisticsViewController.swift in Sources */,
+				8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
 			);
