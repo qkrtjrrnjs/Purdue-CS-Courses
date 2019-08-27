@@ -125,8 +125,8 @@
 		8341CA1A230DDF13000E4F96 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */,
 				8341CA05230C37B3000E4F96 /* CourseViewController.swift */,
+				8341CA2D230F0D0F000E4F96 /* StatisticsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

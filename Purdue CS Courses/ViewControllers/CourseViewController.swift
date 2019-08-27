@@ -53,7 +53,6 @@ class CourseViewController: UIViewController{
         self.courseTableView.delegate                       = self
         self.courseTableView.showsVerticalScrollIndicator   = false
         self.courseTableView.separatorColor                 = .clear
-        self.courseTableView.rowHeight                      = UITableView.automaticDimension
 
         self.view.addSubview(courseTableView)
         
@@ -107,7 +106,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
         statisticsVC.hero.isEnabled             = true
         statisticsVC.hero.modalAnimationType    = .push(direction: .left)
         statisticsVC.view.backgroundColor       = .white
-        statisticsVC.number                     = self.courses[indexPath.section].number
+        statisticsVC.course                     = self.courses[indexPath.section]
         self.present(statisticsVC, animated: true, completion: nil)
     }
 
