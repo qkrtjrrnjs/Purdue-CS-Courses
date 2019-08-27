@@ -24,6 +24,10 @@
 		8341CA2B230EE0C8000E4F96 /* Tajawal-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */; };
 		8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */; };
 		83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CBDB242313209A007FE257 /* DescriptionCell.swift */; };
+		83E788B923157D7500DC1E31 /* StatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788B823157D7500DC1E31 /* StatisticCell.swift */; };
+		83E788BB23157DA600DC1E31 /* AdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BA23157DA600DC1E31 /* AdviceCell.swift */; };
+		83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BC23157DC300DC1E31 /* LiveChatCell.swift */; };
+		83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BE23158DF500DC1E31 /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
 		8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "Purdue CS Courses/ViewControllers/DetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		83CBDB242313209A007FE257 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		83E788B823157D7500DC1E31 /* StatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticCell.swift; path = ../ViewControllers/StatisticCell.swift; sourceTree = "<group>"; };
+		83E788BA23157DA600DC1E31 /* AdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceCell.swift; sourceTree = "<group>"; };
+		83E788BC23157DC300DC1E31 /* LiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveChatCell.swift; sourceTree = "<group>"; };
+		83E788BE23158DF500DC1E31 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +112,7 @@
 				8341CA1A230DDF13000E4F96 /* ViewControllers */,
 				8341CA19230DDF09000E4F96 /* Cells */,
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
+				83E788BE23158DF500DC1E31 /* MenuBar.swift */,
 				8341CA15230C38A5000E4F96 /* Course.swift */,
 				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 				8341CA0A230C37B7000E4F96 /* Assets.xcassets */,
@@ -118,6 +127,9 @@
 			children = (
 				8341CA17230DDB3D000E4F96 /* CourseCell.swift */,
 				83CBDB242313209A007FE257 /* DescriptionCell.swift */,
+				83E788B823157D7500DC1E31 /* StatisticCell.swift */,
+				83E788BA23157DA600DC1E31 /* AdviceCell.swift */,
+				83E788BC23157DC300DC1E31 /* LiveChatCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -276,11 +288,15 @@
 			files = (
 				8341CA18230DDB3D000E4F96 /* CourseCell.swift in Sources */,
 				83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */,
+				83E788B923157D7500DC1E31 /* StatisticCell.swift in Sources */,
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
 				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
 				8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
+				83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
+				83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */,
+				83E788BB23157DA600DC1E31 /* AdviceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

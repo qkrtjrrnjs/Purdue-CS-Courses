@@ -34,9 +34,13 @@ class CourseCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setUpDropView()
+        setUpLabel()
+        setUpButton()
+    }
+    
+    func setUpDropView(){
         addSubview(backdropView)
-        backdropView.addSubview(courseLabel)
-        backdropView.addSubview(showStatisticsButton)
 
         backdropView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(6)
@@ -44,6 +48,10 @@ class CourseCell: UITableViewCell {
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }
+    }
+    
+    func setUpLabel(){
+        backdropView.addSubview(courseLabel)
         
         courseLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(25)
@@ -51,6 +59,10 @@ class CourseCell: UITableViewCell {
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }
+    }
+    
+    func setUpButton(){
+        backdropView.addSubview(showStatisticsButton)
         
         showStatisticsButton.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 30, height: 30))

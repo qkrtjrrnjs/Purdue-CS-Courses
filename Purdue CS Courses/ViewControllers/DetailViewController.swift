@@ -19,27 +19,30 @@ class DetailViewController: UIViewController {
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(backToCourseVC), for: .touchUpInside)
     }
-    
-    let cellId = "cellId"
-    
+    let menuBar = MenuBar()
+    let statisticCellId = "statisticCellId"
+    let adviceCellId = "adviceCellId"
+    let liveChatCellId = "liveChatCellId"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpButton()
         setUpCollectionView()
+        setUpMenuBar()
     }
     
     func setUpCollectionView(){
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 0
+        let layout                  = UICollectionViewFlowLayout()
+        layout.scrollDirection      = .horizontal
+        layout.minimumLineSpacing   = 0
         
-        self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        self.collectionView.backgroundColor = .white
-        self.collectionView.isPagingEnabled = true
-        self.collectionView.showsHorizontalScrollIndicator = false
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.collectionView.showsHorizontalScrollIndicator  = false
+        self.collectionView.backgroundColor                 = .gray
+        self.collectionView.isPagingEnabled                 = true
+        self.collectionView.dataSource                      = self
+        self.collectionView.delegate                        = self
         
         self.view.addSubview(collectionView)
         
@@ -50,10 +53,9 @@ class DetailViewController: UIViewController {
             make.right.equalTo(self.view.snp.right)
         }
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        
-//        collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
-//        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        collectionView.register(StatisticCell.self, forCellWithReuseIdentifier: statisticCellId)
+        collectionView.register(AdviceCell.self, forCellWithReuseIdentifier: adviceCellId)
+        collectionView.register(LiveChatCell.self, forCellWithReuseIdentifier: liveChatCellId)
     }
     
     func setUpButton(){
@@ -70,22 +72,51 @@ class DetailViewController: UIViewController {
         self.hero.modalAnimationType = .push(direction: .right)
         self.hero.dismissViewController()
     }
+    
+    func setUpMenuBar(){
+        self.view.addSubview(menuBar)
+        
+        menuBar.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.snp.top).offset(70)
+            make.bottom.equalTo(self.collectionView.snp.top).offset(-10)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+        }
+    }
 }
 
-extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
-        cell.backgroundColor = .gray
-        
-        return cell
+        switch indexPath.item{
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: statisticCellId, for: indexPath)
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adviceCellId, for: indexPath)
+            return cell
+
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: liveChatCellId, for: indexPath)
+            return cell
+
+        default:
+            return UICollectionViewCell()
+        }
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.invalidateLayout()
     }
 }

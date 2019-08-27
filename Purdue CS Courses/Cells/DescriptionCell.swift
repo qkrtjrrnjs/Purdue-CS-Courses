@@ -22,6 +22,10 @@ class DescriptionCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setUpLabel()
+    }
+    
+    func setUpLabel(){
         addSubview(descriptionLabel)
         
         descriptionLabel.snp.makeConstraints { (make) in
