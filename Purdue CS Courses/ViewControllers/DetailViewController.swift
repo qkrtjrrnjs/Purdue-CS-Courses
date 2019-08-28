@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
         
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.collectionView.showsHorizontalScrollIndicator  = false
-        self.collectionView.backgroundColor                 = .gray
+//        self.collectionView.backgroundColor                 = .blue
         self.collectionView.isPagingEnabled                 = true
         self.collectionView.dataSource                      = self
         self.collectionView.delegate                        = self
@@ -102,15 +102,16 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         switch indexPath.item{
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: statisticCellId, for: indexPath)
+            cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adviceCellId, for: indexPath)
+            cell.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
             return cell
-
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: liveChatCellId, for: indexPath)
+            cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
             return cell
-
         default:
             return UICollectionViewCell()
         }
@@ -119,6 +120,12 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = targetContentOffset.pointee.x / view.frame.width
+        let indexPath = IndexPath(item: Int(index), section: 0)
+        menuBar.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
