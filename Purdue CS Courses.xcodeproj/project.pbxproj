@@ -30,6 +30,9 @@
 		83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BE23158DF500DC1E31 /* MenuBar.swift */; };
 		83E788C32315CDBE00DC1E31 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C22315CDBE00DC1E31 /* BaseTableViewCell.swift */; };
 		83E788C52315CEF600DC1E31 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */; };
+		83E788C72316E36C00DC1E31 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C62316E36C00DC1E31 /* SurveyViewController.swift */; };
+		83E788C92316E90300DC1E31 /* SurveyStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */; };
+		83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		83E788BE23158DF500DC1E31 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		83E788C22315CDBE00DC1E31 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		83E788C62316E36C00DC1E31 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStatisticCell.swift; sourceTree = "<group>"; };
+		83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAdviceCell.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,7 +120,8 @@
 			children = (
 				8341CA2C230EE0CC000E4F96 /* Fonts */,
 				8341CA1A230DDF13000E4F96 /* ViewControllers */,
-				8341CA19230DDF09000E4F96 /* Cells */,
+				8341CA19230DDF09000E4F96 /* TableView Cells */,
+				83E788CC2316E94D00DC1E31 /* CollectionView Cells */,
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
 				83E788BE23158DF500DC1E31 /* MenuBar.swift */,
 				8341CA15230C38A5000E4F96 /* Course.swift */,
@@ -126,18 +133,14 @@
 			path = "Purdue CS Courses";
 			sourceTree = "<group>";
 		};
-		8341CA19230DDF09000E4F96 /* Cells */ = {
+		8341CA19230DDF09000E4F96 /* TableView Cells */ = {
 			isa = PBXGroup;
 			children = (
 				83E788C22315CDBE00DC1E31 /* BaseTableViewCell.swift */,
 				8341CA17230DDB3D000E4F96 /* CourseCell.swift */,
 				83CBDB242313209A007FE257 /* DescriptionCell.swift */,
-				83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */,
-				83E788B823157D7500DC1E31 /* StatisticCell.swift */,
-				83E788BA23157DA600DC1E31 /* AdviceCell.swift */,
-				83E788BC23157DC300DC1E31 /* LiveChatCell.swift */,
 			);
-			path = Cells;
+			path = "TableView Cells";
 			sourceTree = "<group>";
 		};
 		8341CA1A230DDF13000E4F96 /* ViewControllers */ = {
@@ -145,6 +148,7 @@
 			children = (
 				8341CA05230C37B3000E4F96 /* CourseViewController.swift */,
 				8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */,
+				83E788C62316E36C00DC1E31 /* SurveyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -169,6 +173,19 @@
 				8341CA1D230EE0C8000E4F96 /* Tajawal */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		83E788CC2316E94D00DC1E31 /* CollectionView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */,
+				83E788B823157D7500DC1E31 /* StatisticCell.swift */,
+				83E788BA23157DA600DC1E31 /* AdviceCell.swift */,
+				83E788BC23157DC300DC1E31 /* LiveChatCell.swift */,
+				83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */,
+				83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */,
+			);
+			path = "CollectionView Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,10 +314,13 @@
 				83E788B923157D7500DC1E31 /* StatisticCell.swift in Sources */,
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
 				83E788C32315CDBE00DC1E31 /* BaseTableViewCell.swift in Sources */,
+				83E788C92316E90300DC1E31 /* SurveyStatisticCell.swift in Sources */,
 				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
 				8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
+				83E788C72316E36C00DC1E31 /* SurveyViewController.swift in Sources */,
 				83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */,
+				83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
 				83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */,
 				83E788C52315CEF600DC1E31 /* BaseCollectionViewCell.swift in Sources */,

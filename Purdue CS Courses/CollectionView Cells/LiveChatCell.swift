@@ -8,6 +8,6 @@
 
 import UIKit
 
-class LiveChatCell: UICollectionViewCell {
+class LiveChatCell: BaseCollectionViewCell {
     
 }

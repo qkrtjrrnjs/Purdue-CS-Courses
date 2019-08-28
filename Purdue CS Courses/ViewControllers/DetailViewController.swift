@@ -19,6 +19,13 @@ class DetailViewController: UIViewController {
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(backToCourseVC), for: .touchUpInside)
     }
+    let addButton = UIButton().then{ (button) in
+        button.setImage(UIImage(named: "add"), for: .normal)
+        button.addTarget(self, action: #selector(addStatistic), for: .touchUpInside)
+    }
+    let lineView = UIView().then{ (view) in
+        view.backgroundColor = .black
+    }
     let menuBar = MenuBar()
     let statisticCellId = "statisticCellId"
     let adviceCellId = "adviceCellId"
@@ -29,22 +36,44 @@ class DetailViewController: UIViewController {
         
         setUpButton()
         setUpMenuBar()
+        setUpView()
         setUpCollectionView()
     }
     
-    func setUpButton(){
-        self.view.addSubview(backButton)
-        
-        backButton.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: 30, height: 30))
-            make.top.equalTo(self.view.snp.topMargin).offset(50)
-            make.left.equalTo(self.view.snp.left).offset(17)
-        }
+    func scrollToMenuIndex(index: Int){
+        let indexPath = IndexPath(item: index, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: [], animated: true)
     }
     
     @objc func backToCourseVC(){
         self.hero.modalAnimationType = .push(direction: .right)
         self.hero.dismissViewController()
+    }
+    
+    @objc func addStatistic(){
+        let surveyVC                        = SurveyViewController()
+        surveyVC.hero.isEnabled             = true
+        surveyVC.hero.modalAnimationType    = .push(direction: .left)
+        surveyVC.view.backgroundColor       = .white
+        surveyVC.course                     = self.course
+        self.present(surveyVC, animated: true, completion: nil)
+    }
+    
+    func setUpButton(){
+        self.view.addSubview(backButton)
+        self.view.addSubview(addButton)
+        
+        backButton.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 33, height: 33))
+            make.top.equalTo(self.view.snp.topMargin).offset(40)
+            make.left.equalTo(self.view.snp.left).offset(17)
+        }
+        
+        addButton.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 33, height: 33))
+            make.top.equalTo(self.view.snp.topMargin).offset(40)
+            make.right.equalTo(self.view.snp.right).offset(-17)
+        }
     }
     
     func setUpMenuBar(){
@@ -53,16 +82,22 @@ class DetailViewController: UIViewController {
         self.view.addSubview(menuBar)
         
         menuBar.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(200)
+            make.top.equalTo(self.view.snp.topMargin).offset(150)
             make.height.equalTo(35)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
         }
     }
     
-    func scrollToMenuIndex(index: Int){
-        let indexPath = IndexPath(item: index, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: [], animated: true)
+    func setUpView(){
+        self.view.addSubview(lineView)
+        
+        lineView.snp.makeConstraints { (make) in
+            make.height.equalTo(1)
+            make.left.equalTo(self.view.snp.left).offset(8)
+            make.right.equalTo(self.view.snp.right).offset(-8)
+            make.top.equalTo(self.menuBar.snp.bottom).offset(5)
+        }
     }
     
     func setUpCollectionView(){
@@ -72,7 +107,7 @@ class DetailViewController: UIViewController {
         
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.collectionView.showsHorizontalScrollIndicator  = false
-//        self.collectionView.backgroundColor                 = .blue
+        self.collectionView.backgroundColor                 = .white
         self.collectionView.isPagingEnabled                 = true
         self.collectionView.dataSource                      = self
         self.collectionView.delegate                        = self
@@ -80,7 +115,7 @@ class DetailViewController: UIViewController {
         self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.menuBar.snp.bottom).offset(30)
+            make.top.equalTo(self.lineView.snp.bottom).offset(25)
             make.bottom.equalTo(self.view.snp.bottom)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
@@ -90,6 +125,7 @@ class DetailViewController: UIViewController {
         collectionView.register(AdviceCell.self, forCellWithReuseIdentifier: adviceCellId)
         collectionView.register(LiveChatCell.self, forCellWithReuseIdentifier: liveChatCellId)
     }
+    
 }
 
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{

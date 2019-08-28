@@ -8,6 +8,6 @@
 
 import UIKit
 
-class AdviceCell: UICollectionViewCell {
+class AdviceCell: BaseCollectionViewCell {
     
 }
