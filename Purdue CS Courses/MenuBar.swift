@@ -15,11 +15,13 @@ class MenuBar: UIView{
     let cellId = "cellId"
     let menuNames = ["Statistics", "Advices", "Live Chat"]
     let layout = UICollectionViewFlowLayout()
+    
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).then { (cv) in
         cv.delegate = self
         cv.dataSource = self
     }
-
+    var detailViewController: DetailViewController?
+    
     override func layoutSubviews() {
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.invalidateLayout()
@@ -70,6 +72,9 @@ extension MenuBar: UICollectionViewDataSource, UICollectionViewDelegate, UIColle
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        detailViewController?.scrollToMenuIndex(index: indexPath.item)
+    }
 }
 
 class MenuCell: BaseCollectionViewCell{

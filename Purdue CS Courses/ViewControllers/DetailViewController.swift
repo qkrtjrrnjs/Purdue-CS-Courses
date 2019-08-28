@@ -48,6 +48,8 @@ class DetailViewController: UIViewController {
     }
     
     func setUpMenuBar(){
+        menuBar.detailViewController = self
+        
         self.view.addSubview(menuBar)
         
         menuBar.snp.makeConstraints { (make) in
@@ -56,6 +58,11 @@ class DetailViewController: UIViewController {
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
         }
+    }
+    
+    func scrollToMenuIndex(index: Int){
+        let indexPath = IndexPath(item: index, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: [], animated: true)
     }
     
     func setUpCollectionView(){
