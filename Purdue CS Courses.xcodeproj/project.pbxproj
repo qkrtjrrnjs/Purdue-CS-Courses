@@ -53,7 +53,7 @@
 		8341CA24230EE0C8000E4F96 /* Tajawal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
 		8341CA2D230F0D0F000E4F96 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "Purdue CS Courses/ViewControllers/DetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		83CBDB242313209A007FE257 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
-		83E788B823157D7500DC1E31 /* StatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticCell.swift; path = ../ViewControllers/StatisticCell.swift; sourceTree = "<group>"; };
+		83E788B823157D7500DC1E31 /* StatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCell.swift; sourceTree = "<group>"; };
 		83E788BA23157DA600DC1E31 /* AdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceCell.swift; sourceTree = "<group>"; };
 		83E788BC23157DC300DC1E31 /* LiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveChatCell.swift; sourceTree = "<group>"; };
 		83E788BE23158DF500DC1E31 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
