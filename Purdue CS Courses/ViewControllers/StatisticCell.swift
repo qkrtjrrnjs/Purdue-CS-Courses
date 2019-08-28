@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class StatisticCell: UICollectionViewCell {
+class StatisticCell: BaseCollectionViewCell {
     
     let label = UILabel().then{ (label) in
         label.text = "test"
@@ -18,21 +18,12 @@ class StatisticCell: UICollectionViewCell {
         label.textColor = .black
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setUpLabel()
-    }
-    
-    func setUpLabel(){
+    override func setUpLabel(){
+        super.setUpLabel()
         addSubview(label)
         
         label.snp.makeConstraints { (make) in
             make.center.equalTo(self.snp.center)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

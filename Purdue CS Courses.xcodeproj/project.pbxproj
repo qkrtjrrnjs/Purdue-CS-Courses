@@ -28,6 +28,8 @@
 		83E788BB23157DA600DC1E31 /* AdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BA23157DA600DC1E31 /* AdviceCell.swift */; };
 		83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BC23157DC300DC1E31 /* LiveChatCell.swift */; };
 		83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788BE23158DF500DC1E31 /* MenuBar.swift */; };
+		83E788C32315CDBE00DC1E31 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C22315CDBE00DC1E31 /* BaseTableViewCell.swift */; };
+		83E788C52315CEF600DC1E31 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		83E788BA23157DA600DC1E31 /* AdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceCell.swift; sourceTree = "<group>"; };
 		83E788BC23157DC300DC1E31 /* LiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveChatCell.swift; sourceTree = "<group>"; };
 		83E788BE23158DF500DC1E31 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		83E788C22315CDBE00DC1E31 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,8 +129,10 @@
 		8341CA19230DDF09000E4F96 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				83E788C22315CDBE00DC1E31 /* BaseTableViewCell.swift */,
 				8341CA17230DDB3D000E4F96 /* CourseCell.swift */,
 				83CBDB242313209A007FE257 /* DescriptionCell.swift */,
+				83E788C42315CEF600DC1E31 /* BaseCollectionViewCell.swift */,
 				83E788B823157D7500DC1E31 /* StatisticCell.swift */,
 				83E788BA23157DA600DC1E31 /* AdviceCell.swift */,
 				83E788BC23157DC300DC1E31 /* LiveChatCell.swift */,
@@ -290,12 +296,14 @@
 				83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */,
 				83E788B923157D7500DC1E31 /* StatisticCell.swift in Sources */,
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
+				83E788C32315CDBE00DC1E31 /* BaseTableViewCell.swift in Sources */,
 				8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */,
 				8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
 				83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
 				83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */,
+				83E788C52315CEF600DC1E31 /* BaseCollectionViewCell.swift in Sources */,
 				83E788BB23157DA600DC1E31 /* AdviceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

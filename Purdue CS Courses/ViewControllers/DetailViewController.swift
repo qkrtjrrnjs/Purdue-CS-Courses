@@ -11,7 +11,7 @@ import Then
 import SnapKit
 
 class DetailViewController: UIViewController {
-    
+        
     var course: Course?
     var collectionView: UICollectionView!
 
@@ -28,34 +28,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         setUpButton()
-        setUpCollectionView()
         setUpMenuBar()
-    }
-    
-    func setUpCollectionView(){
-        let layout                  = UICollectionViewFlowLayout()
-        layout.scrollDirection      = .horizontal
-        layout.minimumLineSpacing   = 0
-        
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        self.collectionView.showsHorizontalScrollIndicator  = false
-        self.collectionView.backgroundColor                 = .gray
-        self.collectionView.isPagingEnabled                 = true
-        self.collectionView.dataSource                      = self
-        self.collectionView.delegate                        = self
-        
-        self.view.addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.topMargin).offset(100)
-            make.bottom.equalTo(self.view.snp.bottom)
-            make.left.equalTo(self.view.snp.left)
-            make.right.equalTo(self.view.snp.right)
-        }
-        
-        collectionView.register(StatisticCell.self, forCellWithReuseIdentifier: statisticCellId)
-        collectionView.register(AdviceCell.self, forCellWithReuseIdentifier: adviceCellId)
-        collectionView.register(LiveChatCell.self, forCellWithReuseIdentifier: liveChatCellId)
+        setUpCollectionView()
     }
     
     func setUpButton(){
@@ -77,11 +51,37 @@ class DetailViewController: UIViewController {
         self.view.addSubview(menuBar)
         
         menuBar.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.top).offset(70)
-            make.bottom.equalTo(self.collectionView.snp.top).offset(-10)
+            make.top.equalTo(self.view.snp.topMargin).offset(200)
+            make.height.equalTo(35)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
         }
+    }
+    
+    func setUpCollectionView(){
+        let layout                  = UICollectionViewFlowLayout()
+        layout.scrollDirection      = .horizontal
+        layout.minimumLineSpacing   = 0
+        
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.collectionView.showsHorizontalScrollIndicator  = false
+        self.collectionView.backgroundColor                 = .gray
+        self.collectionView.isPagingEnabled                 = true
+        self.collectionView.dataSource                      = self
+        self.collectionView.delegate                        = self
+        
+        self.view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.menuBar.snp.bottom).offset(30)
+            make.bottom.equalTo(self.view.snp.bottom)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+        }
+        
+        collectionView.register(StatisticCell.self, forCellWithReuseIdentifier: statisticCellId)
+        collectionView.register(AdviceCell.self, forCellWithReuseIdentifier: adviceCellId)
+        collectionView.register(LiveChatCell.self, forCellWithReuseIdentifier: liveChatCellId)
     }
 }
 
@@ -119,4 +119,5 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.invalidateLayout()
     }
+    
 }

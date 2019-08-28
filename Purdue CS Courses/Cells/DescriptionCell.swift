@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class DescriptionCell: UITableViewCell {
+class DescriptionCell: BaseTableViewCell {
     
     let descriptionLabel = UILabel().then{ (label) in
         label.textColor        = .black
@@ -19,13 +19,8 @@ class DescriptionCell: UITableViewCell {
         label.numberOfLines    = 0
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        setUpLabel()
-    }
-    
-    func setUpLabel(){
+    override func setUpLabel(){
+        super.setUpLabel()
         addSubview(descriptionLabel)
         
         descriptionLabel.snp.makeConstraints { (make) in
@@ -34,9 +29,5 @@ class DescriptionCell: UITableViewCell {
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

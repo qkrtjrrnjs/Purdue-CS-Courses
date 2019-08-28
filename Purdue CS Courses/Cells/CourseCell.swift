@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class CourseCell: UITableViewCell {
+class CourseCell: BaseTableViewCell {
     
     let courseLabel = UILabel().then{ (label) in
         label.textColor        = .black
@@ -31,15 +31,8 @@ class CourseCell: UITableViewCell {
     
     var showStatistics : (() -> ())?
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        setUpDropView()
-        setUpLabel()
-        setUpButton()
-    }
-    
-    func setUpDropView(){
+    override func setUpBackdropView(){
+        super.setUpBackdropView()
         addSubview(backdropView)
 
         backdropView.snp.makeConstraints { (make) in
@@ -50,7 +43,8 @@ class CourseCell: UITableViewCell {
         }
     }
     
-    func setUpLabel(){
+    override func setUpLabel(){
+        super.setUpLabel()
         backdropView.addSubview(courseLabel)
         
         courseLabel.snp.makeConstraints { (make) in
@@ -61,7 +55,8 @@ class CourseCell: UITableViewCell {
         }
     }
     
-    func setUpButton(){
+    override func setUpButton(){
+        super.setUpButton()
         backdropView.addSubview(showStatisticsButton)
         
         showStatisticsButton.snp.makeConstraints { (make) in
@@ -71,10 +66,6 @@ class CourseCell: UITableViewCell {
         }
         
         self.showStatisticsButton.addTarget(self, action: #selector(descriptionButtonTapped), for: .touchUpInside)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     @objc func descriptionButtonTapped(){
