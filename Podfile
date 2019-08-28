@@ -9,5 +9,6 @@ target 'Purdue CS Courses' do
   pod 'SnapKit'
   pod 'Then'
   pod 'Hero'
+  pod 'UITextView+Placeholder'
 
 end

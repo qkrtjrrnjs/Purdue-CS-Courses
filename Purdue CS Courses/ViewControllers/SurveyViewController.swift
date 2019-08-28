@@ -13,17 +13,18 @@ class SurveyViewController: UIViewController {
     var course: Course?
     var collectionView: UICollectionView!
     
+    let SurveyStatisticCellId     = "SurveyStatisticCellId"
+    let SurveyAdviceCellId        = "SurveyAdviceCellId"
     let backButton = UIButton().then{ (button) in
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(backToCourseVC), for: .touchUpInside)
-    }
-    let SurveyStatisticCellId     = "SurveyStatisticCellId"
-    let SurveyAdviceCellId        = "SurveyAdviceCellId"
+    }    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpButton()
+        setUpCollectionView()
     }
     
     func setUpButton(){
@@ -51,7 +52,7 @@ class SurveyViewController: UIViewController {
         self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.snp.bottom).offset(100)
+            make.top.equalTo(self.view.snp.top).offset(90)
             make.bottom.equalTo(self.view.snp.bottom)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
@@ -88,6 +89,7 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
-    
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
+    }
 }

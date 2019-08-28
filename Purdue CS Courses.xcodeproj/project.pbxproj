@@ -33,6 +33,7 @@
 		83E788C72316E36C00DC1E31 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C62316E36C00DC1E31 /* SurveyViewController.swift */; };
 		83E788C92316E90300DC1E31 /* SurveyStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */; };
 		83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */; };
+		83FCB5832316FF65006634CE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5822316FF65006634CE /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		83E788C62316E36C00DC1E31 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStatisticCell.swift; sourceTree = "<group>"; };
 		83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAdviceCell.swift; sourceTree = "<group>"; };
+		83FCB5822316FF65006634CE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				8341CA19230DDF09000E4F96 /* TableView Cells */,
 				83E788CC2316E94D00DC1E31 /* CollectionView Cells */,
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
+				83FCB5822316FF65006634CE /* BaseView.swift */,
 				83E788BE23158DF500DC1E31 /* MenuBar.swift */,
 				8341CA15230C38A5000E4F96 /* Course.swift */,
 				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
@@ -312,6 +315,7 @@
 				8341CA18230DDB3D000E4F96 /* CourseCell.swift in Sources */,
 				83CBDB252313209A007FE257 /* DescriptionCell.swift in Sources */,
 				83E788B923157D7500DC1E31 /* StatisticCell.swift in Sources */,
+				83FCB5832316FF65006634CE /* BaseView.swift in Sources */,
 				8341CA16230C38A5000E4F96 /* Course.swift in Sources */,
 				83E788C32315CDBE00DC1E31 /* BaseTableViewCell.swift in Sources */,
 				83E788C92316E90300DC1E31 /* SurveyStatisticCell.swift in Sources */,
