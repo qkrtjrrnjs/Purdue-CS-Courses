@@ -18,6 +18,7 @@ class SurveyStatisticCell: BaseCollectionViewCell {
         }
         
         backdropViews[0].numberLabel.text = "1"
+        backdropViews[0].titleLabel.text = "Overall Quality"
         
         backdropViews[0].snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(90)
@@ -27,6 +28,7 @@ class SurveyStatisticCell: BaseCollectionViewCell {
         }
         
         backdropViews[1].numberLabel.text = "2"
+        backdropViews[1].titleLabel.text = "Overall Difficulty"
 
         backdropViews[1].snp.makeConstraints { (make) in
             make.top.equalTo(self.backdropViews[0].snp.bottom).offset(15)
@@ -36,6 +38,7 @@ class SurveyStatisticCell: BaseCollectionViewCell {
         }
         
         backdropViews[2].numberLabel.text = "3"
+        backdropViews[2].titleLabel.text = "Was this course useful?"
 
         backdropViews[2].snp.makeConstraints { (make) in
             make.top.equalTo(self.backdropViews[1].snp.bottom).offset(15)
@@ -45,6 +48,7 @@ class SurveyStatisticCell: BaseCollectionViewCell {
         }
         
         backdropViews[3].numberLabel.text = "4"
+        backdropViews[3].titleLabel.text = "Was this course fun?"
 
         backdropViews[3].snp.makeConstraints { (make) in
             make.top.equalTo(self.backdropViews[2].snp.bottom).offset(15)
