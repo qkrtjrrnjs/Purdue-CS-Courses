@@ -12,15 +12,14 @@ import SnapKit
 
 class BaseView: UIView{
     
-    var number: Int?
-    
+    let circles = [circleView(), circleView(), circleView(), circleView(), circleView()]
+    let labels = [ratingLabel(), ratingLabel(), ratingLabel(), ratingLabel(), ratingLabel()]
+        
     let numberCircleView = UIView().then{ (view) in
         view.layer.cornerRadius = 15
         view.clipsToBounds = true
         view.backgroundColor = .white
     }
-
-    lazy var circles = [circleView(), circleView(), circleView(), circleView(), circleView()]
     
     let numberLabel = UILabel().then{ (label) in
         label.font = UIFont(name: "Tajawal-Regular", size: 14)
@@ -49,12 +48,13 @@ class BaseView: UIView{
             make.top.equalTo(self.snp.top).offset(30)
             make.centerX.equalTo(self.snp.centerX)
         }
-        
-        addSubview(numberLabel)
-        
-        numberLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.numberCircleView.snp.centerX)
-            make.top.equalTo(self.snp.top).offset(20)
+
+        for i in labels.indices{
+            addSubview(labels[i])
+            labels[i].text = "\(i + 1)"
+            labels[i].snp.makeConstraints { (make) in
+                make.center.equalTo(self.circles[i].snp.center)
+            }
         }
     }
     
@@ -62,28 +62,81 @@ class BaseView: UIView{
         backgroundColor = UIColor(hex: "E4ECF1")
         layer.cornerRadius = 7
         
-        addSubview(numberCircleView)
-        numberCircleView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(10)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-            make.left.equalTo(self.snp.left).offset(10)
-        }
-        
         for i in circles.indices{
             addSubview(circles[i])
         }
-
+        
+        print(self.frame.width)
         circles[0].snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerX.equalTo(self.snp.centerX).offset(-120)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        
+        circles[1].snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerX.equalTo(self.snp.centerX).offset(-60)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+
+        circles[2].snp.makeConstraints { (make) in
             make.centerY.equalTo(self.snp.centerY).offset(23)
             make.centerX.equalTo(self.snp.centerX)
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
+        
+        circles[3].snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerX.equalTo(self.snp.centerX).offset(60)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        
+        circles[4].snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerX.equalTo(self.snp.centerX).offset(120)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        
+        for i in circles.indices{
+            circles[i].tag = i
+            circles[i].addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        }
+    }
+    
+    @objc func tapped(_ sender: UIButton){
+        if !isTapped{
+            circles[sender.tag].backgroundColor = UIColor(hex: "88AAC2")
+            labels[sender.tag].textColor = .white
+            
+            for i in circles.indices{
+                if circles[i].tag != sender.tag{
+                    circles[i].backgroundColor = .white
+                    labels[i].textColor = .black
+                }
+            }
+        }
     }
 }
 
-class circleView: UIView{
+extension UIView{
+    var isTapped: Bool{
+        get{
+            if self.backgroundColor == UIColor(hex: "88AAC2"){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
+}
+
+class circleView: UIButton{
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -93,6 +146,24 @@ class circleView: UIView{
         layer.cornerRadius = 25
         clipsToBounds = true
         backgroundColor = .white
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(code:) has not been initialized")
+    }
+}
+
+class ratingLabel :UILabel{
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpLabel()
+    }
+    
+    func setUpLabel(){
+        textColor = .black
+        font = UIFont(name: "Tajawal-Regular", size: 16)
     }
     
     required init?(coder aDecoder: NSCoder) {
