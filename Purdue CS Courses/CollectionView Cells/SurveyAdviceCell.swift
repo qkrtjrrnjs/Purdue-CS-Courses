@@ -13,22 +13,53 @@ import UITextView_Placeholder
 class SurveyAdviceCell: BaseCollectionViewCell {
     
     let textView = UITextView().then{ (textView) in
-        textView.backgroundColor = UIColor(hex: "E4ECF1")
-        textView.font = UIFont(name: "Tajawal-Regular", size: 20)
-        textView.layer.cornerRadius = 7
-        textView.placeholder = "Enter advice..."
-        textView.placeholderColor = .lightGray
+        textView.backgroundColor        = UIColor(hex: "E4ECF1")
+        textView.font                   = UIFont(name: "Tajawal-Regular", size: 20)
+        textView.layer.cornerRadius     = 7
+        textView.placeholder            = "Enter advice..."
+        textView.placeholderColor       = .lightGray
+        textView.textContainerInset     = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
+    let button = UIButton().then{ (button) in
+        button.backgroundColor = UIColor(hex: "88AAC2")
+        button.setTitle("SUBMIT", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 7
+    }
+  
     override func setUpTextView(){
+        textView.delegate = self
+        
         addSubview(textView)
         
         textView.snp.makeConstraints { (make) in
+            make.height.equalTo(self.frame.height / 1.6)
             make.top.equalTo(self.snp.top).offset(90)
-            make.bottom.equalTo(self.snp.bottom).offset(-140)
             make.left.equalTo(self.snp.left).offset(40)
             make.right.equalTo(self.snp.right).offset(-40)
         }
+        
+        addSubview(button)
+        
+        button.snp.makeConstraints { (make) in
+            make.top.equalTo(self.textView.snp.bottom).offset(15)
+            make.left.equalTo(self.snp.left).offset(40)
+            make.right.equalTo(self.snp.right).offset(-40)
+            make.bottom.equalTo(self.snp.bottom).offset(-90)
+        }
     }
+    
+    //dismiss keyboard upon return
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+}
 
+extension SurveyAdviceCell: UITextViewDelegate{
+    
 }

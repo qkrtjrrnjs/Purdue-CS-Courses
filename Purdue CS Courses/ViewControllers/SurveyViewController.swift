@@ -18,13 +18,25 @@ class SurveyViewController: UIViewController {
     let backButton = UIButton().then{ (button) in
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(backToCourseVC), for: .touchUpInside)
-    }    
+    }
+    let locationIndicatorView1 = UIView().then{ (view) in
+        view.backgroundColor        = UIColor(hex: "88AAC2")
+        view.layer.cornerRadius     = 3
+    }
+    
+    let locationIndicatorView2 = UIView().then{ (view) in
+        view.backgroundColor        = UIColor(hex: "E4ECF1")
+        view.layer.cornerRadius     = 3
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpButton()
+        setUpViews()
         setUpCollectionView()
+        
+        self.hideKeyboardOnScreenTap()
     }
     
     func setUpButton(){
@@ -34,6 +46,26 @@ class SurveyViewController: UIViewController {
             make.size.equalTo(CGSize(width: 33, height: 33))
             make.top.equalTo(self.view.snp.topMargin).offset(40)
             make.left.equalTo(self.view.snp.left).offset(17)
+        }
+    }
+    
+    func setUpViews(){
+        self.view.addSubview(locationIndicatorView1)
+        
+        locationIndicatorView1.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.backButton.snp.centerY)
+            make.centerX.equalTo(self.view.snp.centerX).offset(-30)
+            make.width.equalTo(50)
+            make.height.equalTo(5)
+        }
+        
+        self.view.addSubview(locationIndicatorView2)
+        
+        locationIndicatorView2.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.backButton.snp.centerY)
+            make.centerX.equalTo(self.view.snp.centerX).offset(30)
+            make.width.equalTo(50)
+            make.height.equalTo(5)
         }
     }
     
@@ -89,7 +121,35 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
+    
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let index = targetContentOffset.pointee.x / view.frame.width
+        let indexPath = IndexPath(item: Int(index), section: 0)
+        print(indexPath.item)
+        if indexPath.item == 0{
+            locationIndicatorView1.backgroundColor = UIColor(hex: "88AAC2")
+            locationIndicatorView2.backgroundColor = UIColor(hex: "E4ECF1")
+        }else{
+            locationIndicatorView1.backgroundColor = UIColor(hex: "E4ECF1")
+            locationIndicatorView2.backgroundColor = UIColor(hex: "88AAC2")
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+}
+
+//closes keyboard on tap
+extension UIViewController {
+    func hideKeyboardOnScreenTap() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
