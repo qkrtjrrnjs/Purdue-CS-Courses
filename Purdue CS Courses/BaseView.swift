@@ -45,7 +45,7 @@ class BaseView: UIView{
         addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(30)
+            make.top.equalTo(self.snp.top).offset(15)
             make.centerX.equalTo(self.snp.centerX)
         }
 
@@ -68,35 +68,35 @@ class BaseView: UIView{
         
         print(self.frame.width)
         circles[0].snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerY.equalTo(self.snp.centerY).offset(14)
             make.centerX.equalTo(self.snp.centerX).offset(-120)
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
         
         circles[1].snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerY.equalTo(self.snp.centerY).offset(14)
             make.centerX.equalTo(self.snp.centerX).offset(-60)
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
 
         circles[2].snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerY.equalTo(self.snp.centerY).offset(14)
             make.centerX.equalTo(self.snp.centerX)
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
         
         circles[3].snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerY.equalTo(self.snp.centerY).offset(14)
             make.centerX.equalTo(self.snp.centerX).offset(60)
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
         
         circles[4].snp.makeConstraints { (make) in
-            make.centerY.equalTo(self.snp.centerY).offset(23)
+            make.centerY.equalTo(self.snp.centerY).offset(14)
             make.centerX.equalTo(self.snp.centerX).offset(120)
             make.width.equalTo(50)
             make.height.equalTo(50)

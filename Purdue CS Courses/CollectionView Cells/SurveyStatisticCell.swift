@@ -61,10 +61,20 @@ class SurveyStatisticCell: BaseCollectionViewCell {
             backdropViews[2].labels[i].removeFromSuperview()
             backdropViews[3].labels[i].removeFromSuperview()
         }
-        
+     
         backdropViews[2].labels[1].text = "YES"
-        backdropViews[2].labels[3].text = "NO"
         backdropViews[3].labels[1].text = "YES"
+        backdropViews[2].labels[3].text = "NO"
         backdropViews[3].labels[3].text = "NO"
+
+        for i in 0...1{
+            backdropViews[i].circles[2].backgroundColor = UIColor(hex: "88AAC2")
+            backdropViews[i].labels[2].textColor = .white
+        }
+        
+        for i in 2...3{
+            backdropViews[i].circles[1].backgroundColor = UIColor(hex: "88AAC2")
+            backdropViews[i].labels[1].textColor = .white
+        }
     }
 }
