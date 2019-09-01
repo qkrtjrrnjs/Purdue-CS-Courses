@@ -96,8 +96,8 @@ class DetailViewController: UIViewController {
         menuBar.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.snp.topMargin).offset(150)
             make.height.equalTo(35)
-            make.left.equalTo(self.view.snp.left)
-            make.right.equalTo(self.view.snp.right)
+            make.left.equalTo(self.view.snp.left).offset(10)
+            make.right.equalTo(self.view.snp.right).offset(-10)
         }
     }
     
@@ -106,8 +106,8 @@ class DetailViewController: UIViewController {
         
         lineView.snp.makeConstraints { (make) in
             make.height.equalTo(1)
-            make.left.equalTo(self.view.snp.left).offset(8)
-            make.right.equalTo(self.view.snp.right).offset(-8)
+            make.left.equalTo(self.view.snp.left).offset(18)
+            make.right.equalTo(self.view.snp.right).offset(-18)
             make.top.equalTo(self.menuBar.snp.bottom).offset(5)
         }
     }
@@ -127,10 +127,10 @@ class DetailViewController: UIViewController {
         self.view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.lineView.snp.bottom).offset(25)
+            make.top.equalTo(self.lineView.snp.bottom).offset(15)
             make.bottom.equalTo(self.view.snp.bottom)
-            make.left.equalTo(self.view.snp.left)
-            make.right.equalTo(self.view.snp.right)
+            make.left.equalTo(self.view.snp.left).offset(18)
+            make.right.equalTo(self.view.snp.right).offset(-18)
         }
         
         collectionView.register(StatisticCell.self, forCellWithReuseIdentifier: statisticCellId)
@@ -150,15 +150,12 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         switch indexPath.item{
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: statisticCellId, for: indexPath)
-            cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adviceCellId, for: indexPath)
-            cell.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: liveChatCellId, for: indexPath)
-            cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
             return cell
         default:
             return UICollectionViewCell()
@@ -167,11 +164,11 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let index = targetContentOffset.pointee.x / view.frame.width
+        let index = targetContentOffset.pointee.x / collectionView.frame.width
         let indexPath = IndexPath(item: Int(index), section: 0)
         menuBar.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
     }
@@ -183,3 +180,5 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
 }
+
+
