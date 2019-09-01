@@ -10,6 +10,10 @@ import UIKit
 import Then
 import SnapKit
 
+struct GlobalData{
+    static var surveyDataArr = [SurveyData]()
+}
+
 class DetailViewController: UIViewController {
         
     var course: Course?
@@ -38,6 +42,7 @@ class DetailViewController: UIViewController {
         setUpMenuBar()
         setUpView()
         setUpCollectionView()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadCollectionView), name:NSNotification.Name(rawValue: "load"), object: nil)
     }
     
     func scrollToMenuIndex(index: Int){
@@ -48,6 +53,13 @@ class DetailViewController: UIViewController {
     @objc func backToCourseVC(){
         self.hero.modalAnimationType = .push(direction: .right)
         self.hero.dismissViewController()
+    }
+    
+    @objc func loadCollectionView(notification: NSNotification){
+        for i in 0...2{
+            let indexPath = IndexPath(item: i, section: 0)
+            collectionView.reloadItems(at: [indexPath])
+        }
     }
     
     @objc func addStatistic(){
@@ -125,7 +137,7 @@ class DetailViewController: UIViewController {
         collectionView.register(AdviceCell.self, forCellWithReuseIdentifier: adviceCellId)
         collectionView.register(LiveChatCell.self, forCellWithReuseIdentifier: liveChatCellId)
     }
-    
+
 }
 
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{

@@ -12,6 +12,7 @@ class SurveyViewController: UIViewController {
     
     var course: Course?
     var collectionView: UICollectionView!
+    var surveyData = SurveyData(advice: "", qualityScore: 3, difficultyScore: 3, isUseful: true, isFun: true)
     
     let SurveyStatisticCellId     = "SurveyStatisticCellId"
     let SurveyAdviceCellId        = "SurveyAdviceCellId"
@@ -35,8 +36,7 @@ class SurveyViewController: UIViewController {
         setUpButton()
         setUpViews()
         setUpCollectionView()
-        
-        self.hideKeyboardOnScreenTap()
+        hideKeyboardOnScreenTap()
     }
     
     func setUpButton(){
@@ -109,16 +109,59 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let statisticsCell = collectionView.dequeueReusableCell(withReuseIdentifier: SurveyStatisticCellId, for: indexPath) as! SurveyStatisticCell
+        let adviceCell = collectionView.dequeueReusableCell(withReuseIdentifier: SurveyAdviceCellId, for: indexPath) as! SurveyAdviceCell
+        
         switch indexPath.item{
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SurveyStatisticCellId, for: indexPath)
-            return cell
+            statisticsCell.backdropViews[0].getSurveyData = {
+                for i in statisticsCell.backdropViews[0].labels.indices{
+                    if statisticsCell.backdropViews[0].labels[i].textColor == .white{
+                        self.surveyData.qualityScore = Int(statisticsCell.backdropViews[0].labels[i].text!)!
+                    }
+                }
+            }
+            
+            statisticsCell.backdropViews[1].getSurveyData = {
+                for i in statisticsCell.backdropViews[1].labels.indices{
+                    if statisticsCell.backdropViews[1].labels[i].textColor == .white{
+                        self.surveyData.difficultyScore = Int(statisticsCell.backdropViews[0].labels[i].text!)!
+                    }
+                }
+            }
+            
+            statisticsCell.backdropViews[2].getSurveyData = {
+                if statisticsCell.backdropViews[2].labels[1].textColor == .white{
+                    self.surveyData.isUseful = true
+                }else{
+                    self.surveyData.isUseful = false
+                }
+            }
+            
+            statisticsCell.backdropViews[3].getSurveyData = {
+                if statisticsCell.backdropViews[3].labels[1].textColor == .white{
+                    self.surveyData.isFun = true
+                }else{
+                    self.surveyData.isFun = false
+                }
+            }
+            
+            return statisticsCell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SurveyAdviceCellId, for: indexPath)
-            return cell
+            adviceCell.getSurveyData = {
+                self.surveyData.advice = adviceCell.textView.text!
+                GlobalData.surveyDataArr.append(self.surveyData)
+                self.hero.modalAnimationType = .push(direction: .right)
+                self.hero.dismissViewController(completion: {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                })
+            }
+            return adviceCell
         default:
             return UICollectionViewCell()
         }
+        
+        
     }
     
     
@@ -126,7 +169,6 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let index = targetContentOffset.pointee.x / view.frame.width
         let indexPath = IndexPath(item: Int(index), section: 0)
-        print(indexPath.item)
         if indexPath.item == 0{
             locationIndicatorView1.backgroundColor = UIColor(hex: "88AAC2")
             locationIndicatorView2.backgroundColor = UIColor(hex: "E4ECF1")

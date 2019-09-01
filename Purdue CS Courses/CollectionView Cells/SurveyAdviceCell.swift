@@ -21,13 +21,15 @@ class SurveyAdviceCell: BaseCollectionViewCell {
         textView.textContainerInset     = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
-    let button = UIButton().then{ (button) in
+    let submitButton = UIButton().then{ (button) in
         button.backgroundColor = UIColor(hex: "88AAC2")
         button.setTitle("SUBMIT", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 7
     }
   
+    var getSurveyData : (() -> ())?
+
     override func setUpTextView(){
         textView.delegate = self
         
@@ -40,14 +42,21 @@ class SurveyAdviceCell: BaseCollectionViewCell {
             make.right.equalTo(self.snp.right).offset(-40)
         }
         
-        addSubview(button)
+        addSubview(submitButton)
         
-        button.snp.makeConstraints { (make) in
+        submitButton.snp.makeConstraints { (make) in
             make.top.equalTo(self.textView.snp.bottom).offset(15)
             make.left.equalTo(self.snp.left).offset(40)
             make.right.equalTo(self.snp.right).offset(-40)
             make.bottom.equalTo(self.snp.bottom).offset(-90)
         }
+        
+        submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
+    }
+    
+    @objc func submit(){
+        
+        getSurveyData?()
     }
     
     //dismiss keyboard upon return

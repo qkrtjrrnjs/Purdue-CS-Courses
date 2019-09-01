@@ -31,6 +31,8 @@ class BaseView: UIView{
         label.textColor = .black
     }
     
+    var getSurveyData : (() -> ())?
+
     override init(frame: CGRect){
         super.init(frame: frame)
         setUpView()
@@ -120,7 +122,9 @@ class BaseView: UIView{
                 }
             }
         }
+        getSurveyData?()
     }
+
 }
 
 extension UIView{

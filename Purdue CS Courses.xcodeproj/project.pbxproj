@@ -34,6 +34,7 @@
 		83E788C92316E90300DC1E31 /* SurveyStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */; };
 		83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */; };
 		83FCB5832316FF65006634CE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5822316FF65006634CE /* BaseView.swift */; };
+		83FCB58A231B37A0006634CE /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB589231B37A0006634CE /* SurveyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		83E788C82316E90300DC1E31 /* SurveyStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyStatisticCell.swift; sourceTree = "<group>"; };
 		83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAdviceCell.swift; sourceTree = "<group>"; };
 		83FCB5822316FF65006634CE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		83FCB589231B37A0006634CE /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 				83FCB5822316FF65006634CE /* BaseView.swift */,
 				83E788BE23158DF500DC1E31 /* MenuBar.swift */,
 				8341CA15230C38A5000E4F96 /* Course.swift */,
+				83FCB589231B37A0006634CE /* SurveyData.swift */,
 				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 				8341CA0A230C37B7000E4F96 /* Assets.xcassets */,
 				8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */,
@@ -323,6 +326,7 @@
 				8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
 				83E788C72316E36C00DC1E31 /* SurveyViewController.swift in Sources */,
+				83FCB58A231B37A0006634CE /* SurveyData.swift in Sources */,
 				83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */,
 				83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,

@@ -13,7 +13,7 @@ import Then
 class StatisticCell: BaseCollectionViewCell {
     
     let label = UILabel().then{ (label) in
-        label.text = "test"
+        label.text = GlobalData.surveyDataArr.count > 0 ? "\(GlobalData.surveyDataArr[0].difficultyScore)" : "not available"
         label.font = UIFont(name: "Tajawal-Regular", size: 20)
         label.textColor = .black
     }
