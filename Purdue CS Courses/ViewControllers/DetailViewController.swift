@@ -11,13 +11,16 @@ import Then
 import SnapKit
 
 struct GlobalData{
-    static var surveyDataArr = [SurveyData]()
-    static var adviceDataArr = [AdviceData]()
+    static var course: Course?
+    static var courseSurveyData = [String: [SurveyData]]()
+    static var courseAdviceData = [String: [AdviceData]]()
+    static var test = [String: [String]]()
+//    static var surveyDataArr = [SurveyData]()
+//    static var adviceDataArr = [AdviceData]()
 }
 
 class DetailViewController: UIViewController {
         
-    var course: Course?
     var collectionView: UICollectionView!
 
     let backButton = UIButton().then{ (button) in
@@ -51,8 +54,11 @@ class DetailViewController: UIViewController {
     }
     
     @objc func backToCourseVC(){
-        self.hero.modalAnimationType = .push(direction: .right)
-        self.hero.dismissViewController()
+        let courseVC                        = CourseViewController()
+        courseVC.hero.isEnabled             = true
+        courseVC.hero.modalAnimationType    = .push(direction: .right)
+        courseVC.view.backgroundColor       = .white
+        self.present(courseVC, animated: true, completion: nil)
     }
     
     @objc func addStatistic(){
@@ -60,7 +66,6 @@ class DetailViewController: UIViewController {
         surveyVC.hero.isEnabled             = true
         surveyVC.hero.modalAnimationType    = .push(direction: .left)
         surveyVC.view.backgroundColor       = .white
-        surveyVC.course                     = self.course
         self.present(surveyVC, animated: true, completion: nil)
     }
     

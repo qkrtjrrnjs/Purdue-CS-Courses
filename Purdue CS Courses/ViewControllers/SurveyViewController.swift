@@ -10,7 +10,6 @@ import UIKit
 
 class SurveyViewController: UIViewController {
     
-    var course: Course?
     var collectionView: UICollectionView!
     var surveyData = SurveyData(qualityScore: 3, difficultyScore: 3, isUseful: true, isFun: true)
     var adviceData = AdviceData()
@@ -150,11 +149,14 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return statisticsCell
         case 1:
             adviceCell.getSurveyData = {
+                guard let course = GlobalData.course  else { return }
                 self.adviceData.advice = adviceCell.textView.text!
                 if adviceCell.textView.text! != ""{
-                    GlobalData.adviceDataArr.append(self.adviceData)
+                    GlobalData.courseAdviceData.appendAdviceData(self.adviceData, key: "\(course.number)")
+//                    GlobalData.adviceDataArr.append(self.adviceData)
                 }
-                GlobalData.surveyDataArr.append(self.surveyData)
+                GlobalData.courseSurveyData.appendSurveyData(self.surveyData, key: "\(course.number)")
+//                GlobalData.surveyDataArr.append(self.surveyData)
                 let detailVC                        = DetailViewController()
                 detailVC.view.backgroundColor       = .white
                 detailVC.hero.isEnabled             = true
@@ -199,4 +201,36 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+extension Dictionary where Key == String, Value == Array<SurveyData>{
+    
+    mutating func appendSurveyData(_ data:SurveyData, key:String) {
+        
+        if var value = self[key] {
+            // if an array exist, append to it
+            value.append(data)
+            self[key] = value
+        } else {
+            // create a new array since there is nothing here
+            self[key] = [data]
+        }
+    }
+    
+}
+
+extension Dictionary where Key == String, Value == Array<AdviceData>{
+    
+    mutating func appendAdviceData(_ data:AdviceData, key:String) {
+        
+        if var value = self[key] {
+            // if an array exist, append to it
+            value.append(data)
+            self[key] = value
+        } else {
+            // create a new array since there is nothing here
+            self[key] = [data]
+        }
+    }
+    
 }

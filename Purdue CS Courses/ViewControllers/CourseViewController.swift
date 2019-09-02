@@ -132,7 +132,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
         detailVC.hero.isEnabled             = true
         detailVC.hero.modalAnimationType    = .push(direction: .left)
         detailVC.view.backgroundColor       = .white
-        detailVC.course                     = self.courses[indexPath.section]
+        GlobalData.course                   = self.courses[indexPath.section]
         self.present(detailVC, animated: true, completion: nil)
     }
 

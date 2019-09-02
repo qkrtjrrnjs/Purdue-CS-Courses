@@ -11,32 +11,32 @@ import SnapKit
 import Then
 
 class StatisticCell: BaseCollectionViewCell {
-    
-    let label = UILabel().then{ (label) in
-        label.text = GlobalData.surveyDataArr.count > 0 ? "\(GlobalData.surveyDataArr[0].difficultyScore)" : "not available"
-        label.font = UIFont(name: "Tajawal-Regular", size: 20)
-        label.textColor = .black
-    }
-    
+
     let views = [StatisticsView(), StatisticsView(), StatisticsView(), StatisticsView()]
     
     override func setUpViews() {
         super.setUpViews()
-        print("WORKS\n\n\n\n\n\n\n\n\n|")
         for i in views.indices{
             addSubview(views[i])
         }
         
-        if GlobalData.surveyDataArr.count > 0{
+        if let data = GlobalData.courseSurveyData["\(GlobalData.course!.number)"], data.count > 0{
+            print("hello\n\n\n\n")
             var avgQualityScore = 0.0
             var avgDifficultyScore = 0.0
-            for i in GlobalData.surveyDataArr.indices{
-                print(GlobalData.surveyDataArr[i].qualityScore)
-                avgQualityScore += GlobalData.surveyDataArr[i].qualityScore
-                avgDifficultyScore += GlobalData.surveyDataArr[i].difficultyScore
+            for i in GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.indices{
+                avgQualityScore += GlobalData.courseSurveyData["\(GlobalData.course!.number)"]![i].qualityScore
+                avgDifficultyScore += GlobalData.courseSurveyData["\(GlobalData.course!.number)"]![i].difficultyScore
             }
-            avgQualityScore /= Double(GlobalData.surveyDataArr.count)
-            avgDifficultyScore /= Double(GlobalData.surveyDataArr.count)
+            avgQualityScore /= Double(GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.count)
+            avgDifficultyScore /= Double(GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.count)
+
+//            for i in GlobalData.surveyDataArr.indices{
+//                avgQualityScore += GlobalData.surveyDataArr[i].qualityScore
+//                avgDifficultyScore += GlobalData.surveyDataArr[i].difficultyScore
+//            }
+//            avgQualityScore /= Double(GlobalData.surveyDataArr.count)
+//            avgDifficultyScore /= Double(GlobalData.surveyDataArr.count)
             views[0].statisticsLabel.text = "\(Double(round(10*avgQualityScore)/10))"
             views[1].statisticsLabel.text = "\(Double(round(10*avgDifficultyScore)/10))"
         }else{

@@ -68,7 +68,6 @@ class BaseView: UIView{
             addSubview(circles[i])
         }
         
-        print(self.frame.width)
         circles[0].snp.makeConstraints { (make) in
             make.centerY.equalTo(self.snp.centerY).offset(14)
             make.centerX.equalTo(self.snp.centerX).offset(-120)
