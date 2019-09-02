@@ -22,11 +22,28 @@ class StatisticCell: BaseCollectionViewCell {
     
     override func setUpViews() {
         super.setUpViews()
-        
+        print("WORKS\n\n\n\n\n\n\n\n\n|")
         for i in views.indices{
             addSubview(views[i])
         }
         
+        if GlobalData.surveyDataArr.count > 0{
+            var avgQualityScore = 0.0
+            var avgDifficultyScore = 0.0
+            for i in GlobalData.surveyDataArr.indices{
+                print(GlobalData.surveyDataArr[i].qualityScore)
+                avgQualityScore += GlobalData.surveyDataArr[i].qualityScore
+                avgDifficultyScore += GlobalData.surveyDataArr[i].difficultyScore
+            }
+            avgQualityScore /= Double(GlobalData.surveyDataArr.count)
+            avgDifficultyScore /= Double(GlobalData.surveyDataArr.count)
+            views[0].statisticsLabel.text = "\(Double(round(10*avgQualityScore)/10))"
+            views[1].statisticsLabel.text = "\(Double(round(10*avgDifficultyScore)/10))"
+        }else{
+            views[0].statisticsLabel.text = ""
+            views[1].statisticsLabel.text = ""
+        }
+    
         views[0].statisticTitleLabel.text = "Overall Quality"
         views[0].snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top)
@@ -59,26 +76,17 @@ class StatisticCell: BaseCollectionViewCell {
             make.width.equalTo(self.frame.size.width / 2.1)
         }
     }
-    
-    override func setUpLabel(){
-        super.setUpLabel()
-//        addSubview(label)
-//
-//        label.snp.makeConstraints { (make) in
-//            make.center.equalTo(self.snp.center)
-//        }
-    }
 }
 
 class StatisticsView: UIView{
     
     let statisticTitleLabel = UILabel().then{ (label) in
-        label.font = UIFont(name: "Tajawal-Regular", size: 15)
+        label.font = UIFont(name: "Tajawal-Regular", size: 18)
         label.textColor = .black
     }
     
     let statisticsLabel = UILabel().then{ (label) in
-        label.font = UIFont(name: "Tajawal-Regular", size: 30)
+        label.font = UIFont(name: "Tajawal-Regular", size: 70)
         label.textColor = .black
     }
     
@@ -95,7 +103,7 @@ class StatisticsView: UIView{
         
         statisticTitleLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.snp.centerX)
-            make.bottom.equalTo(self.snp.bottom).offset(-10)
+            make.bottom.equalTo(self.snp.bottom).offset(-20)
         }
         
         addSubview(statisticsLabel)

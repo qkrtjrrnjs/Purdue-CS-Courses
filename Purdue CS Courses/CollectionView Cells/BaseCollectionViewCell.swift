@@ -16,11 +16,13 @@ class BaseCollectionViewCell: UICollectionViewCell {
         setUpViews()
         setUpLabel()
         setUpTextView()
+        setUpTableView()
     }
     
     func setUpLabel(){}
     func setUpViews(){}
     func setUpTextView(){}
+    func setUpTableView(){}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

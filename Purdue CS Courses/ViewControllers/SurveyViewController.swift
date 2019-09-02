@@ -12,7 +12,8 @@ class SurveyViewController: UIViewController {
     
     var course: Course?
     var collectionView: UICollectionView!
-    var surveyData = SurveyData(advice: "", qualityScore: 3, difficultyScore: 3, isUseful: true, isFun: true)
+    var surveyData = SurveyData(qualityScore: 3, difficultyScore: 3, isUseful: true, isFun: true)
+    var adviceData = AdviceData()
     
     let SurveyStatisticCellId     = "SurveyStatisticCellId"
     let SurveyAdviceCellId        = "SurveyAdviceCellId"
@@ -117,7 +118,7 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
             statisticsCell.backdropViews[0].getSurveyData = {
                 for i in statisticsCell.backdropViews[0].labels.indices{
                     if statisticsCell.backdropViews[0].labels[i].textColor == .white{
-                        self.surveyData.qualityScore = Int(statisticsCell.backdropViews[0].labels[i].text!)!
+                        self.surveyData.qualityScore = Double(statisticsCell.backdropViews[0].labels[i].text!)!
                     }
                 }
             }
@@ -125,7 +126,7 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
             statisticsCell.backdropViews[1].getSurveyData = {
                 for i in statisticsCell.backdropViews[1].labels.indices{
                     if statisticsCell.backdropViews[1].labels[i].textColor == .white{
-                        self.surveyData.difficultyScore = Int(statisticsCell.backdropViews[0].labels[i].text!)!
+                        self.surveyData.difficultyScore = Double(statisticsCell.backdropViews[0].labels[i].text!)!
                     }
                 }
             }
@@ -149,12 +150,16 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return statisticsCell
         case 1:
             adviceCell.getSurveyData = {
-                self.surveyData.advice = adviceCell.textView.text!
+                self.adviceData.advice = adviceCell.textView.text!
+                if adviceCell.textView.text! != ""{
+                    GlobalData.adviceDataArr.append(self.adviceData)
+                }
                 GlobalData.surveyDataArr.append(self.surveyData)
-                self.hero.modalAnimationType = .push(direction: .right)
-                self.hero.dismissViewController(completion: {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-                })
+                let detailVC                        = DetailViewController()
+                detailVC.view.backgroundColor       = .white
+                detailVC.hero.isEnabled             = true
+                detailVC.hero.modalAnimationType    = .push(direction: .right)
+                self.present(detailVC, animated: true, completion: nil)
             }
             return adviceCell
         default:

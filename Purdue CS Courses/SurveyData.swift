@@ -9,14 +9,12 @@
 import Foundation
 
 struct SurveyData{
-    var advice: String
-    var qualityScore: Int
-    var difficultyScore: Int
+    var qualityScore: Double
+    var difficultyScore: Double
     var isUseful: Bool
     var isFun: Bool
     
-    init(advice: String, qualityScore: Int, difficultyScore: Int, isUseful: Bool, isFun: Bool){
-        self.advice             = advice
+    init(qualityScore: Double, difficultyScore: Double, isUseful: Bool, isFun: Bool){
         self.qualityScore       = qualityScore
         self.difficultyScore    = difficultyScore
         self.isUseful           = isUseful

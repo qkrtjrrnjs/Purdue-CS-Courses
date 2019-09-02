@@ -35,6 +35,7 @@
 		83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */; };
 		83FCB5832316FF65006634CE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB5822316FF65006634CE /* BaseView.swift */; };
 		83FCB58A231B37A0006634CE /* SurveyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB589231B37A0006634CE /* SurveyData.swift */; };
+		83FCB58C231C923F006634CE /* AdviceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FCB58B231C923F006634CE /* AdviceData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		83FCB5802316EAED006634CE /* SurveyAdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAdviceCell.swift; sourceTree = "<group>"; };
 		83FCB5822316FF65006634CE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		83FCB589231B37A0006634CE /* SurveyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyData.swift; sourceTree = "<group>"; };
+		83FCB58B231C923F006634CE /* AdviceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceData.swift; sourceTree = "<group>"; };
 		86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Purdue_CS_Courses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				83E788BE23158DF500DC1E31 /* MenuBar.swift */,
 				8341CA15230C38A5000E4F96 /* Course.swift */,
 				83FCB589231B37A0006634CE /* SurveyData.swift */,
+				83FCB58B231C923F006634CE /* AdviceData.swift */,
 				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 				8341CA0A230C37B7000E4F96 /* Assets.xcassets */,
 				8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */,
@@ -331,6 +334,7 @@
 				83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */,
 				8341CA1C230EDC60000E4F96 /* HexToUIColor.swift in Sources */,
 				83E788BF23158DF500DC1E31 /* MenuBar.swift in Sources */,
+				83FCB58C231C923F006634CE /* AdviceData.swift in Sources */,
 				83E788C52315CEF600DC1E31 /* BaseCollectionViewCell.swift in Sources */,
 				83E788BB23157DA600DC1E31 /* AdviceCell.swift in Sources */,
 			);
