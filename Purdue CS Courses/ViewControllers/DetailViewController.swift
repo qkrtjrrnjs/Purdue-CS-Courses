@@ -9,6 +9,7 @@
 import UIKit
 import Then
 import SnapKit
+import Charts
 
 struct GlobalData{
     static var course: Course?
@@ -17,7 +18,7 @@ struct GlobalData{
 }
 
 class DetailViewController: UIViewController {
-        
+    
     var collectionView: UICollectionView!
 
     let backButton = UIButton().then{ (button) in
@@ -35,6 +36,8 @@ class DetailViewController: UIViewController {
     let statisticCellId = "statisticCellId"
     let adviceCellId = "adviceCellId"
     let liveChatCellId = "liveChatCellId"
+    
+    let pieChartView = PieChartView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
