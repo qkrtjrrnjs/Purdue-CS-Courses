@@ -150,13 +150,13 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 1:
             adviceCell.getSurveyData = {
                 guard let course = GlobalData.course  else { return }
-                self.adviceData.advice = adviceCell.textView.text!
+                self.adviceData.advice  = adviceCell.textView.text!
+                self.adviceData.date    = Date()
                 if adviceCell.textView.text! != ""{
                     GlobalData.courseAdviceData.appendAdviceData(self.adviceData, key: "\(course.number)")
-//                    GlobalData.adviceDataArr.append(self.adviceData)
                 }
                 GlobalData.courseSurveyData.appendSurveyData(self.surveyData, key: "\(course.number)")
-//                GlobalData.surveyDataArr.append(self.surveyData)
+                
                 let detailVC                        = DetailViewController()
                 detailVC.view.backgroundColor       = .white
                 detailVC.hero.isEnabled             = true
@@ -168,10 +168,7 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         
-        
     }
-    
-    
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let index = targetContentOffset.pointee.x / view.frame.width

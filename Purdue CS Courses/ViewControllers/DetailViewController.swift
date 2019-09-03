@@ -14,9 +14,6 @@ struct GlobalData{
     static var course: Course?
     static var courseSurveyData = [String: [SurveyData]]()
     static var courseAdviceData = [String: [AdviceData]]()
-    static var test = [String: [String]]()
-//    static var surveyDataArr = [SurveyData]()
-//    static var adviceDataArr = [AdviceData]()
 }
 
 class DetailViewController: UIViewController {

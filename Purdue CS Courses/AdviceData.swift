@@ -11,9 +11,11 @@ import Foundation
 struct AdviceData{
     var advice: String
     var likeDislikeCount: Int
+    var date: Date
     
-    init(advice: String = "", likeDislikeCount: Int = 0){
-        self.advice = advice
-        self.likeDislikeCount = likeDislikeCount
+    init(advice: String = "", likeDislikeCount: Int = 0, date: Date = Date()){
+        self.advice             = advice
+        self.likeDislikeCount   = likeDislikeCount
+        self.date               = date
     }
 }

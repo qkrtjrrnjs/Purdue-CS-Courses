@@ -48,7 +48,13 @@ extension AdviceCell: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AdviceTableViewCell
-        cell.adviceLabel.text = GlobalData.courseAdviceData["\(GlobalData.course!.number)"]![indexPath.row].advice
+        cell.adviceLabel.text   = GlobalData.courseAdviceData["\(GlobalData.course!.number)"]![indexPath.row].advice
+        
+        let format = DateFormatter()
+        format.dateFormat = "M/d/yy"
+        let formattedDate = format.string(from: GlobalData.courseAdviceData["\(GlobalData.course!.number)"]![indexPath.row].date)
+        
+        cell.dateLabel.text = formattedDate
         return cell
     }
 }
@@ -58,12 +64,18 @@ class AdviceTableViewCell: BaseTableViewCell{
     let backdropView = UIView().then { (view) in
         view.backgroundColor      = UIColor(hex: "E4ECF1")
         view.clipsToBounds        = true
-        view.layer.cornerRadius   = 3
+        view.layer.cornerRadius   = 7
     }
     
     let adviceLabel = UILabel().then{ (label) in
         label.textColor        = .black
         label.font             = UIFont(name: "Tajawal-Regular", size: 20)
+        label.numberOfLines    = 0
+    }
+    
+    let dateLabel = UILabel().then{ (label) in
+        label.textColor        = .black
+        label.font             = UIFont(name: "Tajawal-Regular", size: 18)
         label.numberOfLines    = 0
     }
     
@@ -75,21 +87,29 @@ class AdviceTableViewCell: BaseTableViewCell{
         backdropView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(6)
             make.bottom.equalTo(self.snp.bottom).offset(-6)
-            make.left.equalTo(self.snp.left)
-            make.right.equalTo(self.snp.right)
+            make.left.equalTo(self.snp.left).offset(10)
+            make.right.equalTo(self.snp.right).offset(-10)
         }
     }
     
     override func setUpLabel() {
         super.setUpLabel()
         
-        backdropView.addSubview(adviceLabel)
-        
-        adviceLabel.snp.makeConstraints { (make) in
+        backdropView.addSubview(dateLabel)
+        dateLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(25)
-            make.bottom.equalTo(self.snp.bottom).offset(-25)
-            make.left.equalTo(self.snp.left)
-            make.right.equalTo(self.snp.right)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.right.equalTo(self.snp.right).offset(-20)
         }
+        
+        backdropView.addSubview(adviceLabel)
+        adviceLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.dateLabel.snp.bottom).offset(10)
+            make.bottom.equalTo(self.snp.bottom).offset(-25)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.right.equalTo(self.snp.right).offset(-20)
+        }
+        
+        
     }
 }

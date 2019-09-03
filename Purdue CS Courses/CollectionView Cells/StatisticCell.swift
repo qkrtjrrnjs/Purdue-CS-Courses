@@ -21,7 +21,6 @@ class StatisticCell: BaseCollectionViewCell {
         }
         
         if let data = GlobalData.courseSurveyData["\(GlobalData.course!.number)"], data.count > 0{
-            print("hello\n\n\n\n")
             var avgQualityScore = 0.0
             var avgDifficultyScore = 0.0
             for i in GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.indices{
@@ -31,12 +30,6 @@ class StatisticCell: BaseCollectionViewCell {
             avgQualityScore /= Double(GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.count)
             avgDifficultyScore /= Double(GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.count)
 
-//            for i in GlobalData.surveyDataArr.indices{
-//                avgQualityScore += GlobalData.surveyDataArr[i].qualityScore
-//                avgDifficultyScore += GlobalData.surveyDataArr[i].difficultyScore
-//            }
-//            avgQualityScore /= Double(GlobalData.surveyDataArr.count)
-//            avgDifficultyScore /= Double(GlobalData.surveyDataArr.count)
             views[0].statisticsLabel.text = "\(Double(round(10*avgQualityScore)/10))"
             views[1].statisticsLabel.text = "\(Double(round(10*avgDifficultyScore)/10))"
         }else{
