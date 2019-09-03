@@ -1,8 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
-${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework
-${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/Then/Then.framework
 ${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework
