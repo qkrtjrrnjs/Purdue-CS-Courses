@@ -11,5 +11,6 @@ target 'Purdue CS Courses' do
   pod 'Hero'
   pod 'UITextView+Placeholder'
   pod 'Charts'
+  pod 'MessageKit'
 
 end
