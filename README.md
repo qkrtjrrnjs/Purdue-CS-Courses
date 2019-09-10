@@ -1,6 +1,10 @@
 # Purdue CS Courses
+- Redesign of Rate My Course
 
-## Redesign of Rate My Course
+## Libraries Used
+- Snapkit (autolayout)
+- Then (syntactic sugar for initialization) 
+- Hero (View Controller transition Library) 
 
 ## Wireframe
 <img src='/wireframe.png?raw=true' title='Video Walkthrough' width='835' height='289' alt='Video Walkthrough' />
