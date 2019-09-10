@@ -3,7 +3,7 @@
 ## Redesign of Rate My Course
 
 ## Wireframe
-<img src='/wireframe.png?raw=true' title='Video Walkthrough' width='800' height='300' alt='Video Walkthrough' />
+<img src='/wireframe.png?raw=true' title='Video Walkthrough' width='835' height='289' alt='Video Walkthrough' />
 
 ## Mockup
 <img src='/mockup.png?raw=true' title='Video Walkthrough' width='519' height='528' alt='Video Walkthrough' />
