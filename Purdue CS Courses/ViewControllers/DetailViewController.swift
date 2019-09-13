@@ -25,6 +25,11 @@ class DetailViewController: UIViewController {
         button.setImage(UIImage(named: "back"), for: .normal)
         button.addTarget(self, action: #selector(backToCourseVC), for: .touchUpInside)
     }
+    let titleLabel = UILabel().then{ (label) in
+        label.text = "Statistics"
+        label.textColor = .black
+        label.font = UIFont(name: "Tajawal-Regular", size: 30)
+    }
     let addButton = UIButton().then{ (button) in
         button.setImage(UIImage(named: "add"), for: .normal)
         button.addTarget(self, action: #selector(addStatistic), for: .touchUpInside)
@@ -36,13 +41,14 @@ class DetailViewController: UIViewController {
     let statisticCellId = "statisticCellId"
     let adviceCellId = "adviceCellId"
     let liveChatCellId = "liveChatCellId"
-    
+    let titles = ["Statistics", "Advices", "Live Chat"]
     let pieChartView = PieChartView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpButton()
+        setUpLabel()
         setUpMenuBar()
         setUpView()
         setUpCollectionView()
@@ -51,6 +57,7 @@ class DetailViewController: UIViewController {
     func scrollToMenuIndex(index: Int){
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.scrollToItem(at: indexPath, at: [], animated: true)
+        titleLabel.text = titles[index]
     }
     
     @objc func backToCourseVC(){
@@ -76,13 +83,22 @@ class DetailViewController: UIViewController {
         backButton.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 33, height: 33))
             make.top.equalTo(self.view.snp.topMargin).offset(40)
-            make.left.equalTo(self.view.snp.left).offset(17)
+            make.left.equalTo(self.view.snp.left).offset(20)
         }
         
         addButton.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 33, height: 33))
             make.top.equalTo(self.view.snp.topMargin).offset(40)
-            make.right.equalTo(self.view.snp.right).offset(-17)
+            make.right.equalTo(self.view.snp.right).offset(-20)
+        }
+    }
+    
+    func setUpLabel(){
+        self.view.addSubview(titleLabel)
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view.snp.left).offset(20)
+            make.top.equalTo(self.backButton.snp.bottom).offset(28)
         }
     }
     
