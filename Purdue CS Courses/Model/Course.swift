@@ -12,11 +12,15 @@ struct Course{
     var number: Int
     var description: String
     var isExpanded: Bool
+    var courseSurveyData = [SurveyData]()
+    var courseAdviceData = [AdviceData]()
     
-    init(CS number: Int, description: String, isExpanded: Bool){
+    init(CS number: Int, description: String, isExpanded: Bool, courseSurveyData: [SurveyData], courseAdviceData: [AdviceData]){
         self.number         = number
         self.description    = description
         self.isExpanded     = isExpanded
+        self.courseSurveyData = courseSurveyData
+        self.courseAdviceData = courseAdviceData
     }
 }
 

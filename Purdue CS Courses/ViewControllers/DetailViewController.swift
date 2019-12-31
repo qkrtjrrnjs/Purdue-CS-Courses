@@ -11,11 +11,11 @@ import Then
 import SnapKit
 import Charts
 
-struct GlobalData{
-    static var course: Course?
-    static var courseSurveyData = [String: [SurveyData]]()
-    static var courseAdviceData = [String: [AdviceData]]()
-}
+//struct GlobalData{
+//    static var course: Course?
+//    static var courseSurveyData = [String: [SurveyData]]()
+//    static var courseAdviceData = [String: [AdviceData]]()
+//}
 
 class DetailViewController: UIViewController {
     

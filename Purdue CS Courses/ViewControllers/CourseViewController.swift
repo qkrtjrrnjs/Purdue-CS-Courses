@@ -13,8 +13,6 @@ import Hero
 
 class CourseViewController: UIViewController{
     
-    var courseCenter            = CourseCenter()
-    
     let courseTableView         = UITableView()
     let courseCellId            = "courseCellId"
     let descriptionCellId       = "descriptionCellId"
@@ -28,7 +26,6 @@ class CourseViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpLabel()
         setUpTableView()
     }
@@ -65,11 +62,11 @@ class CourseViewController: UIViewController{
 extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return courseCenter.getCourseCount()
+        return CourseManager.shared.getCourseCount()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if courseCenter.getExpandedStatus(section) == true{
+        if CourseManager.shared.getExpandedStatus(section) == true{
             return 2
         }else{
             return 1
@@ -79,7 +76,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: courseCellId, for: indexPath) as! CourseCell
-            cell.courseLabel.text   = "CS \(courseCenter.getCourse(indexPath.section).number)"
+            cell.courseLabel.text   = "CS \(CourseManager.shared.getCourse(indexPath.section).number)"
             cell.selectionStyle     = .none
             
             cell.showStatistics = { [unowned self] in
@@ -89,29 +86,30 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as! DescriptionCell
-            cell.descriptionLabel.text  = courseCenter.getCourse(indexPath.section).description
+            cell.descriptionLabel.text  = CourseManager.shared.getCourse(indexPath.section).description
             cell.selectionStyle         = .none
             return cell
         }
     }
     
     func transitionToStatisticsVC(indexPath: IndexPath){
-        let detailVC                        = DetailViewController()
-        detailVC.hero.isEnabled             = true
-        detailVC.hero.modalAnimationType    = .push(direction: .left)
-        detailVC.view.backgroundColor       = .white
-        GlobalData.course                   = courseCenter.getCourse(indexPath.section)
+        let detailVC                            = DetailViewController()
+        detailVC.hero.isEnabled                 = true
+        detailVC.hero.modalAnimationType        = .push(direction: .left)
+        detailVC.view.backgroundColor               = .white
+        CourseManager.shared.currentCourseIndex     = indexPath.section
         self.present(detailVC, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            if courseCenter.getExpandedStatus(indexPath.section) == false{
-                courseCenter.setExpandedStatus(true, indexPath.section)
+            if CourseManager.shared.getExpandedStatus(indexPath.section) == false{
+                CourseManager.shared.setExpandedStatus(true, indexPath.section)
                 let sections = IndexSet.init(integer: indexPath.section)
                 courseTableView.reloadSections(sections, with: .automatic)
             }else{
-                courseCenter.setExpandedStatus(false, indexPath.section)
+                CourseManager.shared.courses[indexPath.section].isExpanded = false
+                CourseManager.shared.setExpandedStatus(false, indexPath.section)
                 let sections = IndexSet.init(integer: indexPath.section)
                 courseTableView.reloadSections(sections, with: .automatic)
             }

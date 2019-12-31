@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15EDBC9024C68425ED4A4702 /* Pods_Purdue_CS_Courses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86ABD9E33D18B7FAC070F94D /* Pods_Purdue_CS_Courses.framework */; };
-		8330022023B84F7E00B92D95 /* CourseCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330021F23B84F7E00B92D95 /* CourseCenter.swift */; };
+		8330022023B84F7E00B92D95 /* CourseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8330021F23B84F7E00B92D95 /* CourseManager.swift */; };
 		8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA03230C37B3000E4F96 /* AppDelegate.swift */; };
 		8341CA06230C37B3000E4F96 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8341CA05230C37B3000E4F96 /* CourseViewController.swift */; };
 		8341CA0B230C37B7000E4F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8341CA0A230C37B7000E4F96 /* Assets.xcassets */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		18C80AAAFCD51A24686E38E6 /* Pods-Purdue CS Courses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Purdue CS Courses.debug.xcconfig"; path = "Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses.debug.xcconfig"; sourceTree = "<group>"; };
 		1F51AA10A3D19B78C629F3A0 /* Pods-Purdue CS Courses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Purdue CS Courses.release.xcconfig"; path = "Target Support Files/Pods-Purdue CS Courses/Pods-Purdue CS Courses.release.xcconfig"; sourceTree = "<group>"; };
-		8330021F23B84F7E00B92D95 /* CourseCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCenter.swift; sourceTree = "<group>"; };
+		8330021F23B84F7E00B92D95 /* CourseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseManager.swift; sourceTree = "<group>"; };
 		8341CA00230C37B3000E4F96 /* Purdue CS Courses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Purdue CS Courses.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8341CA03230C37B3000E4F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8341CA05230C37B3000E4F96 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +108,10 @@
 		8330021E23B84F4F00B92D95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8330021F23B84F7E00B92D95 /* CourseCenter.swift */,
+				8330021F23B84F7E00B92D95 /* CourseManager.swift */,
+				8341CA15230C38A5000E4F96 /* Course.swift */,
+				83FCB589231B37A0006634CE /* SurveyData.swift */,
+				83FCB58B231C923F006634CE /* AdviceData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,9 +145,6 @@
 				8341CA03230C37B3000E4F96 /* AppDelegate.swift */,
 				83FCB5822316FF65006634CE /* BaseView.swift */,
 				83E788BE23158DF500DC1E31 /* MenuBar.swift */,
-				8341CA15230C38A5000E4F96 /* Course.swift */,
-				83FCB589231B37A0006634CE /* SurveyData.swift */,
-				83FCB58B231C923F006634CE /* AdviceData.swift */,
 				8341CA1B230EDC60000E4F96 /* HexToUIColor.swift */,
 				8341CA0A230C37B7000E4F96 /* Assets.xcassets */,
 				8341CA0C230C37B7000E4F96 /* LaunchScreen.storyboard */,
@@ -340,7 +340,7 @@
 				8341CA2E230F0D0F000E4F96 /* DetailViewController.swift in Sources */,
 				8341CA04230C37B3000E4F96 /* AppDelegate.swift in Sources */,
 				83E788C72316E36C00DC1E31 /* SurveyViewController.swift in Sources */,
-				8330022023B84F7E00B92D95 /* CourseCenter.swift in Sources */,
+				8330022023B84F7E00B92D95 /* CourseManager.swift in Sources */,
 				83FCB58A231B37A0006634CE /* SurveyData.swift in Sources */,
 				83E788BD23157DC300DC1E31 /* LiveChatCell.swift in Sources */,
 				83FCB5812316EAED006634CE /* SurveyAdviceCell.swift in Sources */,
