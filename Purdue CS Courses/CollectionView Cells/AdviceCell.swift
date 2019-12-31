@@ -13,6 +13,8 @@ class AdviceCell: BaseCollectionViewCell {
     let adviceTableView = UITableView()
     let cellId = "cellId"
     
+    var courseAdviceData = CourseManager.shared.courses[CourseManager.shared.getCurrentIndex()].courseAdviceData
+    
     override func setUpTableView() {
         super.setUpTableView()
         
@@ -39,22 +41,16 @@ class AdviceCell: BaseCollectionViewCell {
 
 extension AdviceCell: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CourseManager.shared.courses[CourseManager.shared.currentCourseIndex!].courseAdviceData.count
-//        if let data = GlobalData.courseAdviceData["\(GlobalData.course!.number)"]{
-//            return data.count
-//        }else{
-//            return 0
-//        }
+        return courseAdviceData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AdviceTableViewCell
-        cell.adviceLabel.text   = CourseManager.shared.courses[CourseManager.shared.currentCourseIndex!].courseAdviceData[indexPath.row].advice //GlobalData.courseAdviceData["\(GlobalData.course!.number)"]![indexPath.row].advice
+        cell.adviceLabel.text   = courseAdviceData[indexPath.row].advice 
         
         let format = DateFormatter()
         format.dateFormat = "M/d/yy"
-        //let formattedDate = format.string(from: GlobalData.courseAdviceData["\(GlobalData.course!.number)"]![indexPath.row].date)
-        let formattedDate = format.string(from: CourseManager.shared.courses[CourseManager.shared.currentCourseIndex!].courseAdviceData[indexPath.row].date)
+        let formattedDate = format.string(from: courseAdviceData[indexPath.row].date)
 
         cell.dateLabel.text = formattedDate
         return cell

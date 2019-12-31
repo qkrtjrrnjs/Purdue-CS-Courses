@@ -17,6 +17,8 @@ class CourseViewController: UIViewController{
     let courseCellId            = "courseCellId"
     let descriptionCellId       = "descriptionCellId"
     
+    var courseManager           = CourseManager.shared
+    
     let titleLabel      = UILabel().then{ (label) in
         label.text          = "COURSE"
         label.textColor     = .black
@@ -62,11 +64,11 @@ class CourseViewController: UIViewController{
 extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return CourseManager.shared.getCourseCount()
+        return courseManager.getCourseCount()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if CourseManager.shared.getExpandedStatus(section) == true{
+        if courseManager.getExpandedStatus(section) == true{
             return 2
         }else{
             return 1
@@ -76,7 +78,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: courseCellId, for: indexPath) as! CourseCell
-            cell.courseLabel.text   = "CS \(CourseManager.shared.getCourse(indexPath.section).number)"
+            cell.courseLabel.text   = "CS \(courseManager.getCourse(indexPath.section).number)"
             cell.selectionStyle     = .none
             
             cell.showStatistics = { [unowned self] in
@@ -86,7 +88,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: descriptionCellId, for: indexPath) as! DescriptionCell
-            cell.descriptionLabel.text  = CourseManager.shared.getCourse(indexPath.section).description
+            cell.descriptionLabel.text  = courseManager.getCourse(indexPath.section).description
             cell.selectionStyle         = .none
             return cell
         }
@@ -96,20 +98,20 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
         let detailVC                            = DetailViewController()
         detailVC.hero.isEnabled                 = true
         detailVC.hero.modalAnimationType        = .push(direction: .left)
-        detailVC.view.backgroundColor               = .white
-        CourseManager.shared.currentCourseIndex     = indexPath.section
+        detailVC.view.backgroundColor           = .white
+        CourseManager.shared.currentCourseIndex        = indexPath.section
         self.present(detailVC, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            if CourseManager.shared.getExpandedStatus(indexPath.section) == false{
-                CourseManager.shared.setExpandedStatus(true, indexPath.section)
+            if courseManager.getExpandedStatus(indexPath.section) == false{
+                courseManager.setExpandedStatus(true, indexPath.section)
                 let sections = IndexSet.init(integer: indexPath.section)
                 courseTableView.reloadSections(sections, with: .automatic)
             }else{
-                CourseManager.shared.courses[indexPath.section].isExpanded = false
-                CourseManager.shared.setExpandedStatus(false, indexPath.section)
+                courseManager.courses[indexPath.section].isExpanded = false
+                courseManager.setExpandedStatus(false, indexPath.section)
                 let sections = IndexSet.init(integer: indexPath.section)
                 courseTableView.reloadSections(sections, with: .automatic)
             }

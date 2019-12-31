@@ -153,10 +153,10 @@ extension SurveyViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 self.adviceData.advice  = adviceCell.textView.text!
                 self.adviceData.date    = Date()
                 if adviceCell.textView.text! != ""{
-                    CourseManager.shared.courses[CourseManager.shared.currentCourseIndex!].courseAdviceData.append(self.adviceData)
+                    CourseManager.shared.courses[CourseManager.shared.getCurrentIndex()].courseAdviceData.append(self.adviceData)
                     //GlobalData.courseAdviceData.appendAdviceData(self.adviceData, key: "\(course.number)")
                 }
-                CourseManager.shared.courses[CourseManager.shared.currentCourseIndex!].courseSurveyData.append(self.surveyData)
+                CourseManager.shared.courses[CourseManager.shared.getCurrentIndex()].courseSurveyData.append(self.surveyData)
                 //GlobalData.courseSurveyData.appendSurveyData(self.surveyData, key: "\(course.number)")
                 
                 let detailVC                        = DetailViewController()

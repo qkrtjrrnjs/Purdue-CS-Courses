@@ -20,7 +20,7 @@ class StatisticCell: BaseCollectionViewCell {
     var usefulYesNoCount = [0, 0]
     var funYesNoCount = [0, 0]
     
-    var surveyDataArr = CourseManager.shared.courses[CourseManager.shared.currentCourseIndex!].courseSurveyData
+    var courseSurveyData = CourseManager.shared.courses[CourseManager.shared.getCurrentIndex()].courseSurveyData
 
     override func setUpViews() {
         super.setUpViews()
@@ -28,9 +28,8 @@ class StatisticCell: BaseCollectionViewCell {
         for i in views.indices{
             addSubview(views[i])
         }
-        
-//        if let data = GlobalData.courseSurveyData["\(GlobalData.course!.number)"], data.count > 0{
-        if  surveyDataArr.count > 0{
+
+        if courseSurveyData.count > 0{
             displayScores()
             getPieChartData()
             updateUsefulChart()
@@ -90,31 +89,29 @@ class StatisticCell: BaseCollectionViewCell {
     func displayScores(){
         var avgQualityScore = 0.0
         var avgDifficultyScore = 0.0
-//        for i in GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.indices{
-//            avgQualityScore += GlobalData.courseSurveyData["\(GlobalData.course!.number)"]![i].qualityScore
-//            avgDifficultyScore += GlobalData.courseSurveyData["\(GlobalData.course!.number)"]![i].difficultyScore
-//        }
-//        avgQualityScore /= Double(GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.count)
-//        avgDifficultyScore /= Double(GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.count)
         
+        avgQualityScore = (courseSurveyData.map{ $0.qualityScore }.reduce(0, +)) / Double(courseSurveyData.count)
+        avgDifficultyScore = (courseSurveyData.map{ $0.difficultyScore }.reduce(0, +)) / Double(courseSurveyData.count)
+
         views[0].statisticsLabel.text = "\(Double(round(10*avgQualityScore)/10))"
         views[1].statisticsLabel.text = "\(Double(round(10*avgDifficultyScore)/10))"
     }
     
     func getPieChartData(){
-//        for i in GlobalData.courseSurveyData["\(GlobalData.course!.number)"]!.indices{
-//            if GlobalData.courseSurveyData["\(GlobalData.course!.number)"]![i].isUseful{
-//                usefulYesNoCount[0] += 1
-//            }else{
-//                usefulYesNoCount[1] += 1
-//            }
-//
-//            if GlobalData.courseSurveyData["\(GlobalData.course!.number)"]![i].isFun{
-//                funYesNoCount[0] += 1
-//            }else{
-//                funYesNoCount[1] += 1
-//            }
-//        }
+        for i in courseSurveyData.indices{
+            if courseSurveyData[i].isUseful{
+                usefulYesNoCount[0] += 1
+            }else{
+                usefulYesNoCount[1] += 1
+            }
+            
+            if courseSurveyData[i].isFun{
+                funYesNoCount[0] += 1
+            }else{
+                funYesNoCount[1] += 1
+            }
+        }
+
     }
     
     func updateUsefulChart(){
